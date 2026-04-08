@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sasae_portal/models/project.dart';
 import 'package:sasae_portal/screens/project_detail_screen.dart';
+import 'package:sasae_portal/screens/privacy_policy_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -600,7 +601,13 @@ class _Footer extends StatelessWidget {
                           ),
                           const SizedBox(height: 12),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const PrivacyPolicyScreen(),
+                                ),
+                              );
+                            },
                             style: TextButton.styleFrom(
                               foregroundColor: scheme.onSurface,
                               padding: EdgeInsets.zero,
@@ -610,7 +617,13 @@ class _Footer extends StatelessWidget {
                             child: const Text('プライバシーポリシー'),
                           ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const PrivacyPolicyScreen(),
+                                ),
+                              );
+                            },
                             style: TextButton.styleFrom(
                               foregroundColor: scheme.onSurface,
                               padding: EdgeInsets.zero,
@@ -636,7 +649,13 @@ class _Footer extends StatelessWidget {
                     ),
                     if (MediaQuery.sizeOf(context).width < 600)
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const PrivacyPolicyScreen(),
+                            ),
+                          );
+                        },
                         child: const Text('ポリシー'),
                       ),
                   ],
