@@ -1,11 +1,11 @@
 {
-    "name": "sasae_portal",
-    "short_name": "sasae_portal",
+    "name": "Sasae Works",
+    "short_name": "Sasae Works",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Sasae Project Official Website",
+    "description": "Sasae Works Official Website",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -1,6 +1,10 @@
-# sasae_portal
+# Sasae Works Portal
 
-Sasae Project Official Website
+Sasae Works Official Website
+
+## Overview
+
+This is the official portal site for Sasae Works, showcasing our portfolio of mental wellness and self-care applications built with Flutter.
 
 ## Getting Started
 

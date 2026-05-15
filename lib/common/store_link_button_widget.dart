@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+/// A widget that displays download buttons for Google Play and the App Store.
 class StoreLinkButtonWidget extends StatelessWidget {
   final String googlePlayLink;
   final String appStoreLink;

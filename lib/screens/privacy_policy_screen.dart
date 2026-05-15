@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// A screen that displays the privacy policy for Sasae Works applications.
 class PrivacyPolicyScreen extends StatelessWidget {
   const PrivacyPolicyScreen({super.key});
 

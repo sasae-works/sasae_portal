@@ -4,6 +4,8 @@ import 'package:sasae_portal/models/project.dart';
 import 'package:sasae_portal/screens/project_detail_screen.dart';
 import 'package:sasae_portal/screens/privacy_policy_screen.dart';
 
+/// The main landing page of the Sasae Works portal website.
+/// This screen includes a hero section, a list of projects, contact info, and a footer.
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -20,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static const double _navBreakpoint = 880;
 
+  /// Smoothly scrolls to the section identified by the given [key].
   Future<void> _scrollTo(GlobalKey key) async {
     final ctx = key.currentContext;
     if (ctx == null) return;
@@ -53,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Padding(
           padding: EdgeInsets.only(left: compact ? 4 : 0),
           child: Text(
-            'Sasae Works', // ← Worksに修正
+            'Sasae Works',
             style: textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w700,
               letterSpacing: -0.4,
@@ -104,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
               child: Text(
-                'Sasae Works', // ← Worksに修正
+                'Sasae Works',
                 style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
               ),
             ),
@@ -119,6 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 // --- Hero Section ---
+/// Displays the main slogan and introduction of Sasae Works.
 class _HeroSection extends StatelessWidget {
   const _HeroSection({super.key, required this.scheme, required this.textTheme});
   final ColorScheme scheme;
@@ -167,6 +171,7 @@ class _HeroSection extends StatelessWidget {
 }
 
 // --- Projects Section ---
+/// Displays a grid/list of applications developed by Sasae Works.
 class _ProjectsSection extends StatelessWidget {
   const _ProjectsSection({super.key, required this.scheme, required this.textTheme});
   final ColorScheme scheme;
@@ -273,8 +278,10 @@ class _ProjectsSection extends StatelessWidget {
   }
 }
 
-// --- 以下、既存のパーツ（ProjectCard, Contact, Footer等）の Project を Works に置換 ---
+// --- Sub Sections ---
 
+/// A card widget representing a single project.
+/// A card widget that displays information about a single [Project].
 class _ProjectCard extends StatelessWidget {
   const _ProjectCard({required this.project});
   final Project project;
@@ -315,6 +322,8 @@ class _ProjectCard extends StatelessWidget {
   }
 }
 
+/// Section for contact information and inquiries.
+/// A section providing contact information for Sasae Works.
 class _ContactSection extends StatelessWidget {
   const _ContactSection({super.key, required this.scheme, required this.textTheme});
   final ColorScheme scheme;
@@ -339,6 +348,8 @@ class _ContactSection extends StatelessWidget {
   }
 }
 
+/// Footer section containing site info and policy links.
+/// The footer of the home page, containing site information and links.
 class _Footer extends StatelessWidget {
   const _Footer({required this.scheme, required this.textTheme});
   final ColorScheme scheme;

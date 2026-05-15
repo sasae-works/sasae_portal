@@ -3,6 +3,7 @@ import 'package:sasae_portal/common/store_link_button_widget.dart';
 import 'package:sasae_portal/models/project.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+/// A screen that displays detailed information about a specific [Project].
 class ProjectDetailScreen extends StatelessWidget {
   const ProjectDetailScreen({super.key, required this.project});
 
