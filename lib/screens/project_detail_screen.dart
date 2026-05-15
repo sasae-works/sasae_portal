@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sasae_portal/common/store_link_button_widget.dart';
 import 'package:sasae_portal/models/project.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -34,7 +35,7 @@ class ProjectDetailScreen extends StatelessWidget {
                         const SizedBox(height: 40),
 
                         // --- 追加要素1: リンクボタン ---
-                        _buildExternalLinks(scheme, textTheme),
+                        StoreLinkButtonWidget(googlePlayLink: project.googlePlayLink, appStoreLink: project.appStoreLink),
 
                         const SizedBox(height: 40),
 
@@ -148,23 +149,5 @@ class ProjectDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildExternalLinks(ColorScheme scheme, TextTheme textTheme) {
-    return Row(
-      children: [
-        GestureDetector(
-            onTap: () {
-              final url = Uri.parse(project.googlePlayLink);
-              launchUrl(url);
-            }, // ストアリンク
-            child: Image.asset("assets/googlePlay.png", width: 200, height: 60,fit: BoxFit.fill,)),
-        SizedBox(width: 50,),
-        GestureDetector(
-            onTap: () {
-              final url = Uri.parse(project.appStoreLink);
-              launchUrl(url);
-            }, // ストアリンク
-            child: Image.asset("assets/appStore.png", width: 200, height: 60,fit: BoxFit.fill)),
-      ],
-    );
-  }
+
 }

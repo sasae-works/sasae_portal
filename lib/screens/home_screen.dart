@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sasae_portal/common/store_link_button_widget.dart';
 import 'package:sasae_portal/models/project.dart';
 import 'package:sasae_portal/screens/project_detail_screen.dart';
 import 'package:sasae_portal/screens/privacy_policy_screen.dart';
@@ -175,7 +176,7 @@ class _ProjectsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final projects = [
       const Project(
-        title: '3 Good Things',
+        title: '3 Good Things〜寝る前3つの良かったこと日記',
         icon: Icons.wb_sunny_outlined,
         description: '１日で起きた3つの良いことを書く習慣を続けるための無料日記アプリです。毎日寝る前の記録が、あなたの幸福感や睡眠の質の改善に役立つことが報告されています😴\nぜひ続けて、心地よい毎日を目指しましょう!\n\n★ このアプリがおすすめな人 ★\n・日記を習慣にしたいけど続かない\n・ネガティブな考えを改善したい\n・忙しくても自分と向き合う時間が欲しい\n・小さな幸せや成長を感じたい\n・写真や音声でも記録を残したい。\n・バックアップ対応の安心な日記アプリを探している',
         // description: 'ポジティブ心理学に基づき、1日3つの「よかったこと」を記録。メンタルを整え、幸福感を高めるセルフケアアプリです。',
@@ -300,6 +301,8 @@ class _ProjectCard extends StatelessWidget {
               Icon(project.icon, color: scheme.primary, size: 32),
               const SizedBox(height: 16),
               Text(project.title, style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
+              // const SizedBox(height: 12),//TODo
+              // StoreLinkButtonWidget(googlePlayLink: project.googlePlayLink, appStoreLink: project.appStoreLink),
               const SizedBox(height: 12),
               Text(project.description, style: textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant)),
               const SizedBox(height: 20),
