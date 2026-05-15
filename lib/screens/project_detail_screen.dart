@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sasae_portal/models/project.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProjectDetailScreen extends StatelessWidget {
   const ProjectDetailScreen({super.key, required this.project});
@@ -150,21 +151,19 @@ class ProjectDetailScreen extends StatelessWidget {
   Widget _buildExternalLinks(ColorScheme scheme, TextTheme textTheme) {
     return Row(
       children: [
-        ElevatedButton.icon(
-          onPressed: () {}, // GitHubリンク
-          icon: const Icon(Icons.code),
-          label: const Text('View Source (GitHub)'),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: scheme.primary,
-            foregroundColor: scheme.onPrimary,
-          ),
-        ),
-        const SizedBox(width: 12),
-        OutlinedButton.icon(
-          onPressed: () {}, // ストアリンク
-          icon: const Icon(Icons.launch),
-          label: const Text('Visit Store'),
-        ),
+        GestureDetector(
+            onTap: () {
+              final url = Uri.parse(project.googlePlayLink);
+              launchUrl(url);
+            }, // ストアリンク
+            child: Image.asset("assets/googlePlay.png", width: 200, height: 60,fit: BoxFit.fill,)),
+        SizedBox(width: 50,),
+        GestureDetector(
+            onTap: () {
+              final url = Uri.parse(project.appStoreLink);
+              launchUrl(url);
+            }, // ストアリンク
+            child: Image.asset("assets/appStore.png", width: 200, height: 60,fit: BoxFit.fill)),
       ],
     );
   }

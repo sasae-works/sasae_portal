@@ -5,6 +5,8 @@ void main() {
   runApp(const MyApp());
 }
 
+/// The main application widget for Sasae Works.
+/// Main entry point for the Sasae Works portal application.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Sasae Project',
+      title: 'Sasae Works',
       theme: base.copyWith(
         scaffoldBackgroundColor: base.colorScheme.surface,
         appBarTheme: AppBarTheme(
