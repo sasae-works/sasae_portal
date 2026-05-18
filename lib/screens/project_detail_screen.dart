@@ -16,7 +16,12 @@ class ProjectDetailScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(project.title),
+        titleSpacing: 0,
+        leadingWidth: 84, // 戻るボタン付近の余白を拡大
+        title: Text(
+          project.title,
+          style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+        ),
       ),
       body: SelectionArea(
         child: CustomScrollView(
@@ -26,7 +31,7 @@ class ProjectDetailScreen extends StatelessWidget {
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 720),
                   child: Padding(
-                    padding: const EdgeInsets.fromLTRB(24, 24, 24, 48),
+                    padding: const EdgeInsets.fromLTRB(24, 40, 24, 64), // 上下余白を増やして「空気感」を醸成
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -41,7 +46,7 @@ class ProjectDetailScreen extends StatelessWidget {
                           style: textTheme.titleMedium?.copyWith(
                             color: scheme.primary,
                             fontWeight: FontWeight.w500,
-                            height: 1.5,
+                            height: 1.6, // 行間を微調整
                           ),
                         ),
 
@@ -52,57 +57,68 @@ class ProjectDetailScreen extends StatelessWidget {
 
                         const SizedBox(height: 40),
 
-                        // Overview
                         _buildSectionTitle(scheme, textTheme, '概要'),
                         Text(
-                          project.description,
+                          project.recommendedText,
                           style: textTheme.bodyLarge?.copyWith(
                             color: scheme.onSurfaceVariant,
-                            height: 1.65,
+                            height: 1.8,
                           ),
                         ),
+
+                        if (project.mainText.isNotEmpty) ...[
+                          _ExpandableMainText(
+                            title: '機能と特徴の詳細',
+                            content: project.mainText,
+                            scheme: scheme,
+                            textTheme: textTheme,
+                          ),
+                        ],
 
                         if (project.jpImageList.isNotEmpty) ...[
                           const SizedBox(height: 40),
                           _buildSectionTitle(scheme, textTheme, 'スクリーンショット'),
                           const SizedBox(height: 16),
-                          ScrollConfiguration(
-                            behavior: ScrollConfiguration.of(context).copyWith(
-                              dragDevices: {
-                                PointerDeviceKind.touch,
-                                PointerDeviceKind.mouse,
-                                PointerDeviceKind.trackpad,
-                              },
-                            ),
-                            child: SizedBox(
-                              height: 500,
-                              child: ListView.separated(
-                                scrollDirection: Axis.horizontal,
-                                physics: const BouncingScrollPhysics(),
-                                itemCount: project.jpImageList.length,
-                                separatorBuilder: (context, index) => const SizedBox(width: 16),
-                                itemBuilder: (context, index) {
-                                  return Container(
-                                    margin: const EdgeInsets.symmetric(vertical: 12),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black.withValues(alpha: 0.1),
-                                          blurRadius: 20,
-                                          offset: const Offset(0, 8),
-                                        ),
-                                      ],
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(16),
-                                      child: Image.asset(
-                                        project.jpImageList[index],
-                                        fit: BoxFit.contain,
-                                      ),
-                                    ),
-                                  );
+                          Scrollbar(
+                            thumbVisibility: true,
+                            child: ScrollConfiguration(
+                              behavior: ScrollConfiguration.of(context).copyWith(
+                                dragDevices: {
+                                  PointerDeviceKind.touch,
+                                  PointerDeviceKind.mouse,
+                                  PointerDeviceKind.trackpad,
                                 },
+                              ),
+                              child: SizedBox(
+                                height: 500,
+                                child: ListView.separated(
+                                  scrollDirection: Axis.horizontal,
+                                  physics: const BouncingScrollPhysics(),
+                                  itemCount: project.jpImageList.length,
+                                  separatorBuilder: (context, index) => const SizedBox(width: 16),
+                                  itemBuilder: (context, index) {
+                                    return Container(
+                                      margin: const EdgeInsets.symmetric(vertical: 12),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(16),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black.withValues(alpha: 0.1),
+                                            blurRadius: 20,
+                                            offset: const Offset(0, 8),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(16),
+                                        child: Image.asset(
+                                          project.jpImageList[index],
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                ),
                               ),
                             ),
                           ),
@@ -114,7 +130,10 @@ class ProjectDetailScreen extends StatelessWidget {
                         _buildSectionTitle(scheme, textTheme, '開発の背景'),
                         Text(
                           project.contentsText,
-                          style: const TextStyle(height: 1.65),
+                          style: textTheme.bodyLarge?.copyWith(
+                            color: scheme.onSurfaceVariant,
+                            height: 1.8,
+                          ),
                         ),
 
                         const SizedBox(height: 32),
@@ -123,7 +142,10 @@ class ProjectDetailScreen extends StatelessWidget {
                         _buildSectionTitle(scheme, textTheme, 'こだわったポイント'),
                         Text(
                           project.attentionToDetail,
-                          style: const TextStyle(height: 1.65),
+                          style: textTheme.bodyLarge?.copyWith(
+                            color: scheme.onSurfaceVariant,
+                            height: 1.8,
+                          ),
                         ),
 
                         const SizedBox(height: 32),
@@ -175,15 +197,156 @@ class ProjectDetailScreen extends StatelessWidget {
 
   Widget _buildSectionTitle(ColorScheme scheme, TextTheme textTheme, String title) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: Text(
-        title,
-        style: textTheme.titleSmall?.copyWith(
-          color: scheme.primary,
-          fontWeight: FontWeight.w700,
-          letterSpacing: 0.4,
-        ),
+      padding: const EdgeInsets.only(top: 48, bottom: 16), // 上部の余白を増やしてセクションの区切りを明確に
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              // 装飾用の縦棒を少し強調
+              Container(
+                width: 6,
+                height: 24,
+                decoration: BoxDecoration(
+                  color: scheme.primary,
+                  borderRadius: BorderRadius.circular(3),
+                ),
+              ),
+              const SizedBox(width: 14),
+              Text(
+                title,
+                style: textTheme.titleLarge?.copyWith(
+                  color: scheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20, // 20pxに拡大して強調
+                  letterSpacing: 0.5,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Divider(
+            color: scheme.outlineVariant.withValues(alpha: 0.6), // 区切り線を少し強調
+            thickness: 1,
+            height: 1,
+          ),
+        ],
       ),
+    );
+  }
+}
+
+/// A widget that displays a collapsed text section with a "Read More" button.
+class _ExpandableMainText extends StatefulWidget {
+  const _ExpandableMainText({
+    required this.title,
+    required this.content,
+    required this.scheme,
+    required this.textTheme,
+  });
+
+  final String title;
+  final String content;
+  final ColorScheme scheme;
+  final TextTheme textTheme;
+
+  @override
+  State<_ExpandableMainText> createState() => _ExpandableMainTextState();
+}
+
+class _ExpandableMainTextState extends State<_ExpandableMainText> {
+  bool _isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 48, bottom: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    width: 6,
+                    height: 24,
+                    decoration: BoxDecoration(
+                      color: widget.scheme.primary,
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Text(
+                    widget.title,
+                    style: widget.textTheme.titleLarge?.copyWith(
+                      color: widget.scheme.onSurface,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Divider(
+                color: widget.scheme.outlineVariant.withValues(alpha: 0.6),
+                thickness: 1,
+                height: 1,
+              ),
+            ],
+          ),
+        ),
+        AnimatedCrossFade(
+          firstChild: ConstrainedBox(
+            constraints: const BoxConstraints(maxHeight: 160),
+            child: ShaderMask(
+              shaderCallback: (rect) {
+                return LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.black, Colors.black, Colors.transparent],
+                  stops: const [0.0, 0.6, 1.0],
+                ).createShader(rect);
+              },
+              blendMode: BlendMode.dstIn,
+              child: Text(
+                widget.content,
+                style: widget.textTheme.bodyLarge?.copyWith(
+                  color: widget.scheme.onSurfaceVariant,
+                  height: 1.8,
+                ),
+              ),
+            ),
+          ),
+          secondChild: Text(
+            widget.content,
+            style: widget.textTheme.bodyLarge?.copyWith(
+              color: widget.scheme.onSurfaceVariant,
+              height: 1.8,
+            ),
+          ),
+          crossFadeState: _isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+          duration: const Duration(milliseconds: 300),
+        ),
+        const SizedBox(height: 16),
+        Center(
+          child: TextButton.icon(
+            onPressed: () => setState(() => _isExpanded = !_isExpanded),
+            icon: Icon(_isExpanded ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded),
+            label: Text(_isExpanded ? '詳細を閉じる' : '詳細をすべて見る'),
+            style: TextButton.styleFrom(
+              foregroundColor: widget.scheme.primary,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+                side: BorderSide(color: widget.scheme.primary.withValues(alpha: 0.2)),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

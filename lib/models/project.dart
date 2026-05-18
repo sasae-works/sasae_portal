@@ -5,8 +5,9 @@ class Project {
   const Project({
     required this.title,
     required this.icon,
-    required this.summary,
-    required this.description,
+    required this.summary,//最初のページで出す要約テキスト
+    required this.recommendedText,//このアプリがおすすめな人みたいなテキスト
+    required this.mainText,//凄く長いストアに出してる詳細なテキスト
     required this.techStack,
     required this.contentsText,
     required this.attentionToDetail,
@@ -29,7 +30,10 @@ class Project {
   final String summary;
 
   /// A brief description of the project.
-  final String description;
+  final String recommendedText;
+
+  /// A brief description of the project.
+  final String mainText;
 
   /// Detailed background information about the project.
   final String contentsText;
