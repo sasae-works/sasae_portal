@@ -5,24 +5,28 @@ class Project {
   const Project({
     required this.title,
     required this.icon,
+    required this.summary,
     required this.description,
     required this.techStack,
-    required this.contentsText, // Background/Reason for development
-    required this.attentionToDetail, // Key features and design focus
-
-    // TODO: Update links if ownership is transferred
-    required this.googlePlayLink, // Link to Google Play Store
-    required this.appStoreLink, // Link to Apple App Store
-    required this.createDate, // Initial release date
-    required this.updateDate, // Last updated date
-    required this.version, // Current application version
+    required this.contentsText,
+    required this.attentionToDetail,
+    required this.jpImageList,
+    required this.enImageList,
+    required this.googlePlayLink,
+    required this.appStoreLink,
+    required this.createDate,
+    required this.updateDate,
+    required this.version,
   });
 
   /// The name of the project.
   final String title;
 
-  /// The icon representing the project.
-  final IconData icon;
+  /// The asset path to the icon representing the project.
+  final String icon;
+
+  /// A summary of the project.
+  final String summary;
 
   /// A brief description of the project.
   final String description;
@@ -32,6 +36,12 @@ class Project {
 
   /// Specific details and highlights of the project's implementation.
   final String attentionToDetail;
+
+  /// List of Japanese screenshot asset paths.
+  final List<String> jpImageList;
+
+  /// List of English screenshot asset paths.
+  final List<String> enImageList;
 
   /// The technology stack used for the project.
   final String techStack;

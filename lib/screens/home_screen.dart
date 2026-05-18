@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:sasae_portal/common/store_link_button_widget.dart';
 import 'package:sasae_portal/models/project.dart';
@@ -180,28 +181,35 @@ class _ProjectsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final projects = [
-      const Project(
+      Project(
         title: '3 Good Things〜寝る前3つの良かったこと日記',
-        icon: Icons.wb_sunny_outlined,
-        description: '１日で起きた3つの良いことを書く習慣を続けるための無料日記アプリです。毎日寝る前の記録が、あなたの幸福感や睡眠の質の改善に役立つことが報告されています😴\nぜひ続けて、心地よい毎日を目指しましょう!\n\n★ このアプリがおすすめな人 ★\n・日記を習慣にしたいけど続かない\n・ネガティブな考えを改善したい\n・忙しくても自分と向き合う時間が欲しい\n・小さな幸せや成長を感じたい\n・写真や音声でも記録を残したい。\n・バックアップ対応の安心な日記アプリを探している',
-        // description: 'ポジティブ心理学に基づき、1日3つの「よかったこと」を記録。メンタルを整え、幸福感を高めるセルフケアアプリです。',
+        icon: 'assets/3GoodThings/3グッドシングスアイコン.png',
+        summary: "１日で起きた3つの良いことを書く習慣を続けるための無料日記アプリです。毎日寝る前の記録が、あなたの幸福感や睡眠の質の改善に役立つことが報告されています😴",
+        description: '★ このアプリがおすすめな人 ★\n・日記を習慣にしたいけど続かない\n・ネガティブな考えを改善したい\n・忙しくても自分と向き合う時間が欲しい\n・小さな幸せや成長を感じたい\n・写真や音声でも記録を残したい。\n・バックアップ対応の安心な日記アプリを探している',
+        // description: '１日で起きた3つの良いことを書く習慣を続けるための無料日記アプリです。毎日寝る前の記録が、あなたの幸福感や睡眠の質の改善に役立つことが報告されています😴\nぜひ続けて、心地よい毎日を目指しましょう!\n\n★ このアプリがおすすめな人 ★\n・日記を習慣にしたいけど続かない\n・ネガティブな考えを改善したい\n・忙しくても自分と向き合う時間が欲しい\n・小さな幸せや成長を感じたい\n・写真や音声でも記録を残したい。\n・バックアップ対応の安心な日記アプリを探している',
         contentsText: "開発の背景",
         attentionToDetail: "こだわり",
+        jpImageList: List.generate(8, (i) => 'assets/3GoodThings/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
+        enImageList: List.generate(8, (i) => 'assets/3GoodThings/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
         techStack: 'Flutter / Dart / Drift',
         googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.three_good_things',
-        appStoreLink: 'https://apps.apple.com/jp/app/3-good-things-%E5%AF%9D%E3%82%8B%E5%89%8D3%E3%81%A4%E3%81%AE%E8%89%AF%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8%E6%97%A5%E8%A8%98/id6443807421',
+        appStoreLink:
+            'https://apps.apple.com/jp/app/3-good-things-%E5%AF%9D%E3%82%8B%E5%89%8D3%E3%81%A4%E3%81%AE%E8%89%AF%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8%E6%97%A5%E8%A8%98/id6443807421',
         createDate: '2022年10月26日',
         updateDate: '2025年10月23日',
         version: '2.1.0',
       ),
 
-      const Project(
+      Project(
         title: '褒め日記',
-        icon: Icons.thumb_up_alt_outlined,
-        description: '『褒め日記』 - あなたの小さな成功を記録するアプリ！\n毎日、自分を褒めることでポジティブな自分になりましょう😊\n\n★ このアプリがおすすめな人 ★\n・日記を書く習慣を身につけたい方\n・ポジティブな思考を持ちたい方\n・忙しくて時間がない方\n・過去の思い出を振り返りたい方:\n・分かりやすい成果をみて肯定感アップ\n・SNSでのシェアを楽しみたい方',
-        // description: '毎日の小さな成功を記録し、自己肯定感を高めます。Driftを用いた完全ローカル保存で、プライバシーを守ります。',
+        icon: 'assets/homeNikki/褒め日記アイコン.png',
+        summary: "『褒め日記』 - あなたの小さな成功を記録するアプリ！毎日, 自分を褒めることでポジティブな自分になりましょう😊",
+        description:'★ このアプリがおすすめな人 ★\n・日記を書く習慣を身につけたい方\n・ポジティブな思考を持ちたい方\n・忙しくて時間がない方\n・過去の思い出を振り返りたい方:\n・分かりやすい成果をみて肯定感アップ\n・SNSでのシェアを楽しみたい方',
+        // description:'『褒め日記』 - あなたの小さな成功を記録するアプリ！\n毎日, 自分を褒めることでポジティブな自分になりましょう😊\n\n★ このアプリがおすすめな人 ★\n・日記を書く習慣を身につけたい方\n・ポジティブな思考を持ちたい方\n・忙しくて時間がない方\n・過去の思い出を振り返りたい方:\n・分かりやすい成果をみて肯定感アップ\n・SNSでのシェアを楽しみたい方',
         contentsText: "開発の背景",
         attentionToDetail: "こだわり",
+        jpImageList: List.generate(8, (i) => 'assets/homeNikki/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
+        enImageList: List.generate(8, (i) => 'assets/homeNikki/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
         techStack: 'Flutter / Dart / Drift',
         googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.homerarejyouzu',
         appStoreLink: 'https://apps.apple.com/jp/app/%E8%A4%92%E3%82%81%E6%97%A5%E8%A8%98/id1617944420',
@@ -209,27 +217,35 @@ class _ProjectsSection extends StatelessWidget {
         updateDate: '2025年6月19日',
         version: '1.8.0',
       ),
-      const Project(
+      Project(
         title: 'ココロリサーチ',
-        icon: Icons.favorite_border_rounded,
-        description: 'うつや双極性障害の方や復職を目指している方の生活リズムを可視化。\n医師への提示もスムーズにする活動記録ツールです。\n\n★ このアプリがおすすめな人 ★\n✓生活パターンを客観的に見たい方\n✓昼夜逆転など崩れた生活リズムの改善したい\n✓メンタルヘルスの不調（うつ病、双極性障害、統合失調症など）や病気、怪我などからの復職や就職を目指したい\n✓病気の再発防止とセルフケア\n✓ストレスを感じる活動や気分が良くなる活動を知りたい\n✓お薬の管理と飲み忘れを防止\n✓主治医や職場の方とデータを共有し、アドバイスや今後の目標を立てられる',
-        // description: 'うつや双極性障害の方の生活リズムを可視化。医師への提示もスムーズにする活動記録ツールです。',
-        contentsText: "双極性障害の方や復職したい人向けのアプリが数少なく、また既にある物を使ってみて自分なりにこうした方が使いやすいのではないかと思い、その他の必要と思える機能の追加（お薬の飲み忘れ防止など）を付け加えて作ってみました",
+        icon: 'assets/kokoroResearch/ココロリサーチアイコン.png',
+        summary: "うつや双極性障害の方や復職を目指している方の生活リズムを可視化。\n医師への提示もスムーズにする活動記録ツールです。",
+        description:'★ このアプリがおすすめな人 ★\n✓生活パターンを客観的に見たい方\n✓昼夜逆転など崩れた生活リズムの改善したい\n✓メンタルヘルスの不調（うつ病、双極性障害、統合失調症など）や病気、怪我などからの復職や就職を目指したい\n✓病気の再発防止とセルフケア\n✓ストレスを感じる活動や気分が良くなる活動を知りたい\n✓お薬の管理と飲み忘れを防止\n✓主治医や職場の方とデータを共有し、アドバイスや今後の目標を立てられる',
+        // description:'うつや双極性障害の方や復職を目指している方の生活リズムを可視化。\n医師への提示もスムーズにする活動記録ツールです。\n\n★ このアプリがおすすめな人 ★\n✓生活パターンを客観的に見たい方\n✓昼夜逆転など崩れた生活リズムの改善したい\n✓メンタルヘルスの不調（うつ病、双極性障害、統合失調症など）や病気、怪我などからの復職や就職を目指したい\n✓病気の再発防止とセルフケア\n✓ストレスを感じる活動や気分が良くなる活動を知りたい\n✓お薬の管理と飲み忘れを防止\n✓主治医や職場の方とデータを共有し、アドバイスや今後の目標を立てられる',
+        contentsText:
+            "双極性障害の方や復職したい人向けのアプリが数少なく、また既にある物を使ってみて自分なりにこうした方が使いやすいのではないかと思い、その他の必要と思える機能の追加（お薬の飲み忘れ防止など）を付け加えて作ってみました",
         attentionToDetail: "こだわり",
+        jpImageList: List.generate(8, (i) => 'assets/kokoroResearch/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
+        enImageList: List.generate(8, (i) => 'assets/kokoroResearch/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
         techStack: 'Flutter / Dart / Drift',
         googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.kokoro_research',
-        appStoreLink: 'https://apps.apple.com/jp/app/%E3%82%B3%E3%82%B3%E3%83%AD%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81/id6499306435',
+        appStoreLink:
+            'https://apps.apple.com/jp/app/%E3%82%B3%E3%82%B3%E3%83%AD%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81/id6499306435',
         createDate: '2024年9月18日',
         updateDate: '2025年10月22日',
         version: '1.3.0',
       ),
-      const Project(
+      Project(
         title: 'バッグの中身',
-        icon: Icons.restaurant_menu_rounded,
-        description: 'かばんの中の持ち物管理用アプリです。\nこんなことはありませんか？\n・よく忘れ物をする\n・外出中に財布や傘など、荷物を家に置き忘れてないか気になる。\nそんなお悩みを解決します！\n\n★ このアプリがおすすめな人 ★\n・バッグに入れ忘れた物を確認したい人\n・バッグに何が入っているかスマホで確認したい\n・バッグを沢山使い分けて物の行方が分からなくなる人',
-        // description: '\n・画像を登録できるので1つ1つのもちものの確認がしやすいです。\n・ホーム画面でその日にいる持ち物を選択し、用意したかどうかチェック！\n・追加画面でもちものを登録できます。\n・編集画面で画像の変更や名前の変更、削除が可能。\nさぁ、このアプリで忘れ物の悩みから解放されよう！',
+        icon: 'assets/bagNakami/バッグの中身アイコン.png',
+        summary: "「あれ持ったっけ？」を解消。カバンの中身をリスト化し、忘れ物をゼロにする持ち物管理アプリです。バッグごとの入れ替えもスムーズに。",
+        description:
+            'かばんの中の持ち物管理用アプリです。\nこんなことはありませんか？\n・よく忘れ物をする\n・外出中に財布や傘など、荷物を家に置き忘れてないか気になる。\nそんなお悩みを解決します！\n\n★ このアプリがおすすめな人 ★\n・バッグに入れ忘れた物を確認したい人\n・バッグに何が入っているかスマホで確認したい\n・バッグを沢山使い分けて物の行方が分からなくなる人',
         contentsText: "開発の背景",
-        attentionToDetail: "こだわり",
+        attentionToDetail: "こだわり",//TODO 英語も画像できたら追加
+        jpImageList: List.generate(5, (i) => 'assets/bagNakami/jp/bag-screenshot${i + 1}.png'),
+        enImageList: [],
         techStack: 'Flutter / Dart / Drift',
         googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.simple_contents_of_bag',
         appStoreLink: 'https://apps.apple.com/jp/app/%E3%83%90%E3%83%83%E3%82%B0%E3%81%AE%E4%B8%AD%E8%BA%AB/id1626800664',
@@ -239,10 +255,19 @@ class _ProjectsSection extends StatelessWidget {
       ),
       const Project(
         title: '焼肉判定AI（Preparing）',
-        icon: Icons.restaurant_menu_rounded,
+        icon: 'assets/yakiniku/焼肉アイコン.png',
+        summary: "AIが肉の「最高の焼き加減」を判定。色覚の多様性により焼き具合の判断が難しい方をサポートする、ユニバーサルデザインの試みです。",
         description: 'YOLOを用いた画像認識で、肉の焼き加減をリアルタイム判別。色覚の多様性をサポートする挑戦的なプロジェクトです。',
         contentsText: "開発の背景",
-        attentionToDetail: "こだわり",
+        attentionToDetail: "こだわり",//TODO 英語も画像できたら追加
+        jpImageList: [
+          'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 1.png',
+          'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 2.png',
+          'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 3.png',
+          'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 4.png',
+          'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 5.png',
+        ],
+        enImageList: [],
         techStack: 'Flutter / YOLO / Python',
         googlePlayLink: '',
         appStoreLink: '',
@@ -252,23 +277,68 @@ class _ProjectsSection extends StatelessWidget {
       ),
     ];
 
+
+    // 画面幅に応じてレイアウトを切り替え（1100px以上の場合はRowで高さを揃える）
+    final isWide = MediaQuery.sizeOf(context).width > 1100;
+
     return ColoredBox(
       color: scheme.surfaceContainerLow,
       child: Center(
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 1120),
+          constraints: const BoxConstraints(maxWidth: 1200),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 80),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('PROJECTS', style: textTheme.labelLarge?.copyWith(color: scheme.primary, fontWeight: FontWeight.bold)),
-                const SizedBox(height: 40),
-                Wrap(
-                  spacing: 24,
-                  runSpacing: 24,
-                  children: projects.map((p) => SizedBox(width: 340, child: _ProjectCard(project: p))).toList(),
+                Text(
+                  'PROJECTS',
+                  style: textTheme.labelLarge?.copyWith(
+                    color: scheme.primary,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0,
+                  ),
                 ),
+                const SizedBox(height: 48),
+                if (isWide)
+                  // デスクトップ表示：3カラム
+                  Column(
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(child: _ProjectCard(project: projects[0])),
+                          const SizedBox(width: 24),
+                          Expanded(child: _ProjectCard(project: projects[1])),
+                          const SizedBox(width: 24),
+                          Expanded(child: _ProjectCard(project: projects[2])),
+                        ],
+                      ),
+                      const SizedBox(height: 24),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Expanded(child: _ProjectCard(project: projects[3])),
+                          const SizedBox(width: 24),
+                          Expanded(child: _ProjectCard(project: projects[4])),
+                          const SizedBox(width: 24),
+                          const Expanded(child: SizedBox()), // 配置調整用の空スペース
+                        ],
+                      ),
+                    ],
+                  )
+                else
+                  // モバイル・タブレット表示：Wrapで柔軟に折り返す
+                  Center(
+                    child: Wrap(
+                      spacing: 24,
+                      runSpacing: 24,
+                      children: projects.map((p) => SizedBox(
+                        width: 340,
+                        child: _ProjectCard(project: p),
+                      )).toList(),
+                    ),
+                  ),
               ],
             ),
           ),
@@ -280,7 +350,6 @@ class _ProjectsSection extends StatelessWidget {
 
 // --- Sub Sections ---
 
-/// A card widget representing a single project.
 /// A card widget that displays information about a single [Project].
 class _ProjectCard extends StatelessWidget {
   const _ProjectCard({required this.project});
@@ -293,27 +362,123 @@ class _ProjectCard extends StatelessWidget {
 
     return Card(
       elevation: 0,
+      clipBehavior: Clip.antiAlias,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
-        side: BorderSide(color: scheme.outlineVariant),
+        borderRadius: BorderRadius.circular(28),
+        side: BorderSide(color: scheme.outlineVariant.withValues(alpha: 0.5)),
       ),
       child: InkWell(
-        onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProjectDetailScreen(project: project))),
-        borderRadius: BorderRadius.circular(20),
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => ProjectDetailScreen(project: project)),
+        ),
         child: Padding(
-          padding: const EdgeInsets.all(24),
+          padding: const EdgeInsets.all(24), // 余白を少し詰める
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(project.icon, color: scheme.primary, size: 32),
-              const SizedBox(height: 16),
-              Text(project.title, style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
-              // const SizedBox(height: 12),//TODo
-              // StoreLinkButtonWidget(googlePlayLink: project.googlePlayLink, appStoreLink: project.appStoreLink),
-              const SizedBox(height: 12),
-              Text(project.description, style: textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant)),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(project.icon, width: 56, height: 56, fit: BoxFit.cover),
+              ),
               const SizedBox(height: 20),
-              Text(project.techStack, style: textTheme.labelMedium?.copyWith(color: scheme.primary)),
+              // タイトルの高さを2行分に固定
+              SizedBox(
+                height: (textTheme.headlineSmall?.fontSize ?? 24) * 1.3 * 2.2,
+                child: Text(
+                  project.title,
+                  style: textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    height: 1.3,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+              const SizedBox(height: 12),
+              // サマリーの高さを3行分に固定
+              SizedBox(
+                height: (textTheme.bodyMedium?.fontSize ?? 14) * 1.6 * 3.2,
+                child: Text(
+                  project.summary,
+                  style: textTheme.bodyMedium?.copyWith(
+                    color: scheme.onSurfaceVariant,
+                    height: 1.6,
+                  ),
+                  maxLines: 3,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              if (project.jpImageList.isNotEmpty) ...[
+                // カルーセルエリア
+                ScrollConfiguration(
+                  behavior: ScrollConfiguration.of(context).copyWith(
+                    dragDevices: {
+                      PointerDeviceKind.touch,
+                      PointerDeviceKind.mouse,
+                      PointerDeviceKind.trackpad,
+                    },
+                  ),
+                  child: SizedBox(
+                    height: 220, // 少しコンパクトに
+                    child: Scrollbar(
+                      thumbVisibility: true,
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        physics: const BouncingScrollPhysics(),
+                        itemCount: project.jpImageList.length,
+                        separatorBuilder: (context, index) => const SizedBox(width: 12),
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: const EdgeInsets.symmetric(vertical: 8),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withValues(alpha: 0.06),
+                                  blurRadius: 8,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.asset(
+                                project.jpImageList[index],
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+              ],
+
+              // 下部の要素との間隔を空ける
+              const SizedBox(height: 32),
+
+              // ストアリンクボタン
+              if (project.googlePlayLink.isNotEmpty || project.appStoreLink.isNotEmpty) ...[
+                StoreLinkButtonWidget(
+                  googlePlayLink: project.googlePlayLink,
+                  appStoreLink: project.appStoreLink,
+                ),
+                const SizedBox(height: 16),
+              ],
+
+              Text(
+                project.techStack,
+                style: textTheme.labelLarge?.copyWith(
+                  color: scheme.primary,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 1.0,
+                ),
+              ),
             ],
           ),
         ),
@@ -323,7 +488,6 @@ class _ProjectCard extends StatelessWidget {
 }
 
 /// Section for contact information and inquiries.
-/// A section providing contact information for Sasae Works.
 class _ContactSection extends StatelessWidget {
   const _ContactSection({super.key, required this.scheme, required this.textTheme});
   final ColorScheme scheme;
@@ -331,17 +495,84 @@ class _ContactSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final isCompact = width < 600;
+
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 24),
-        child: Column(
-          children: [
-            Text('CONTACT', style: textTheme.labelLarge?.copyWith(color: scheme.primary, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 16),
-            const Text('お問い合わせ・開発のご相談はメールにて承ります。'),
-            const SizedBox(height: 24),
-            Text('sasae.works@gmail.com', style: textTheme.titleLarge),
-          ],
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 1120),
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            vertical: isCompact ? 64 : 120,
+            horizontal: 24,
+          ),
+          child: Column(
+            children: [
+              Text(
+                'CONTACT',
+                style: textTheme.labelLarge?.copyWith(
+                  color: scheme.primary,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0,
+                ),
+              ),
+              const SizedBox(height: 32),
+              Text(
+                '一緒に、新しい「支え」を。',
+                textAlign: TextAlign.center,
+                style: textTheme.headlineMedium?.copyWith(
+                  fontWeight: FontWeight.w800,
+                  fontSize: isCompact ? 24 : null,
+                ),
+              ),
+              const SizedBox(height: 24),
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 600),
+                child: Text(
+                  'アプリ開発のご相談や、プロジェクトに関するお問い合わせをお待ちしております。お気軽にご連絡ください。',
+                  textAlign: TextAlign.center,
+                  style: textTheme.bodyLarge?.copyWith(
+                    color: scheme.onSurfaceVariant,
+                    height: 1.6,
+                    fontSize: isCompact ? 15 : null,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 48),
+              // Email address highlight
+              Container(
+                width: double.infinity,
+                padding: EdgeInsets.symmetric(
+                  horizontal: isCompact ? 16 : 40,
+                  vertical: 24,
+                ),
+                decoration: BoxDecoration(
+                  color: scheme.primaryContainer.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(24),
+                  border: Border.all(color: scheme.primary.withValues(alpha: 0.1)),
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      'Email Address',
+                      style: textTheme.labelMedium?.copyWith(color: scheme.primary),
+                    ),
+                    const SizedBox(height: 8),
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: SelectableText(
+                        'sasae.works@gmail.com',
+                        style: textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 0.5,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -349,7 +580,6 @@ class _ContactSection extends StatelessWidget {
 }
 
 /// Footer section containing site info and policy links.
-/// The footer of the home page, containing site information and links.
 class _Footer extends StatelessWidget {
   const _Footer({required this.scheme, required this.textTheme});
   final ColorScheme scheme;
@@ -357,26 +587,105 @@ class _Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final isWide = width > 700;
+
     return Container(
-      padding: const EdgeInsets.all(48),
+      width: double.infinity,
       color: scheme.surfaceContainerHigh,
-      child: Column(
-        children: [
-          Text('Sasae Works', style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold)),
-          const SizedBox(height: 16),
-          TextButton(
-            onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const PrivacyPolicyScreen())),
-            child: const Text('プライバシーポリシー'),
+      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 24),
+      child: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 1120),
+          child: Column(
+            children: [
+              if (isWide)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildBrandInfo(false),
+                    _buildFooterLinks(context, false),
+                  ],
+                )
+              else
+                Column(
+                  children: [
+                    _buildBrandInfo(true),
+                    const SizedBox(height: 48),
+                    _buildFooterLinks(context, true),
+                  ],
+                ),
+              const SizedBox(height: 80),
+              Divider(color: scheme.outlineVariant.withValues(alpha: 0.5)),
+              const SizedBox(height: 32),
+              Text(
+                '© ${DateTime.now().year} Sasae Works. All rights reserved.',
+                style: textTheme.bodySmall?.copyWith(
+                  color: scheme.onSurfaceVariant,
+                ),
+              ),
+            ],
           ),
-          const SizedBox(height: 24),
-          Text('© ${DateTime.now().year} Sasae Works', style: textTheme.bodySmall),
-        ],
+        ),
       ),
+    );
+  }
+
+  Widget _buildBrandInfo(bool isCenter) {
+    return Column(
+      crossAxisAlignment: isCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Sasae Works',
+          style: textTheme.titleLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+            letterSpacing: -0.5,
+          ),
+        ),
+        const SizedBox(height: 12),
+        Text(
+          '日常を支える、Flutter製のモダンなプロダクト。',
+          textAlign: isCenter ? TextAlign.center : TextAlign.start,
+          style: textTheme.bodyMedium?.copyWith(
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildFooterLinks(BuildContext context, bool isCenter) {
+    return Column(
+      crossAxisAlignment: isCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+      children: [
+        Text(
+          'LEGAL',
+          style: textTheme.labelMedium?.copyWith(
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1.2,
+          ),
+        ),
+        const SizedBox(height: 16),
+        InkWell(
+          onTap: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const PrivacyPolicyScreen()),
+          ),
+          child: Text(
+            'プライバシーポリシー',
+            style: textTheme.bodyMedium?.copyWith(
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
 
-// 共通パーツ
+// --- Common Widgets ---
+
+/// A navigation action button used in the AppBar.
 class _NavAction extends StatelessWidget {
   const _NavAction({required this.label, required this.onTap});
   final String label;
@@ -387,6 +696,7 @@ class _NavAction extends StatelessWidget {
   }
 }
 
+/// A menu item used in the mobile navigation drawer.
 class _DrawerTile extends StatelessWidget {
   const _DrawerTile({required this.label, required this.onTap});
   final String label;

@@ -64,10 +64,20 @@ flutter:
   assets:
     - assets/
     - assets/yakiniku/
+    - assets/yakiniku/jp/
+    - assets/yakiniku/en/
     - assets/bagNakami/
+    - assets/bagNakami/jp/
+    - assets/bagNakami/en/
     - assets/homeNikki/
+    - assets/homeNikki/jp/
+    - assets/homeNikki/en/
     - assets/3GoodThings/
+    - assets/3GoodThings/jp/
+    - assets/3GoodThings/en/
     - assets/kokoroResearch/
+    - assets/kokoroResearch/jp/
+    - assets/kokoroResearch/en/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
