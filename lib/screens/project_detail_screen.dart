@@ -153,58 +153,11 @@ class ProjectDetailScreen extends StatelessWidget {
                         ),
 
                         if (projectAnnouncements.isNotEmpty) ...[
-                          _buildSectionTitle(scheme, textTheme, 'アップデート履歴'),
-                          const SizedBox(height: 8),
-                          ...projectAnnouncements.map((announcement) {
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 12),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        announcement.date,
-                                        style: textTheme.labelLarge?.copyWith(
-                                          color: scheme.primary,
-                                          fontWeight: FontWeight.bold,
-                                          fontFamily: 'monospace',
-                                        ),
-                                      ),
-                                      const SizedBox(width: 12),
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-                                        decoration: BoxDecoration(
-                                          color: scheme.surfaceContainerHighest,
-                                          borderRadius: BorderRadius.circular(6),
-                                        ),
-                                        child: Text(
-                                          'v${announcement.version}',
-                                          style: textTheme.labelSmall?.copyWith(
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 8),
-                                  ...announcement.contents.map((content) {
-                                    return Padding(
-                                      padding: const EdgeInsets.only(bottom: 4),
-                                      child: Text(
-                                        content,
-                                        style: textTheme.bodyMedium?.copyWith(
-                                          color: scheme.onSurfaceVariant,
-                                          height: 1.6,
-                                        ),
-                                      ),
-                                    );
-                                  }),
-                                  const Divider(height: 32),
-                                ],
-                              ),
-                            );
-                          }),
+                          _ExpandableReleaseNotes(
+                            announcements: projectAnnouncements,
+                            scheme: scheme,
+                            textTheme: textTheme,
+                          ),
                         ],
 
                         const SizedBox(height: 32),
@@ -289,6 +242,157 @@ class ProjectDetailScreen extends StatelessWidget {
             thickness: 1,
             height: 1,
           ),
+        ],
+      ),
+    );
+  }
+}
+
+/// A widget that displays release notes with an option to expand historical updates.
+class _ExpandableReleaseNotes extends StatefulWidget {
+  const _ExpandableReleaseNotes({
+    required this.announcements,
+    required this.scheme,
+    required this.textTheme,
+  });
+
+  final List<announceUpdateApp> announcements;
+  final ColorScheme scheme;
+  final TextTheme textTheme;
+
+  @override
+  State<_ExpandableReleaseNotes> createState() => _ExpandableReleaseNotesState();
+}
+
+class _ExpandableReleaseNotesState extends State<_ExpandableReleaseNotes> {
+  bool _isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final first = widget.announcements.first;
+    final remaining = widget.announcements.skip(1).toList();
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildSectionTitle(widget.scheme, widget.textTheme, 'リリースノート'),
+        const SizedBox(height: 8),
+        _buildAnnouncementItem(first),
+        if (remaining.isNotEmpty) ...[
+          AnimatedCrossFade(
+            firstChild: const SizedBox.shrink(),
+            secondChild: Column(
+              children: remaining.map((a) => _buildAnnouncementItem(a)).toList(),
+            ),
+            crossFadeState: _isExpanded ? CrossFadeState.showSecond : CrossFadeState.showFirst,
+            duration: const Duration(milliseconds: 300),
+          ),
+          const SizedBox(height: 16),
+          Center(
+            child: TextButton.icon(
+              onPressed: () => setState(() => _isExpanded = !_isExpanded),
+              icon: Icon(_isExpanded ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded),
+              label: Text(_isExpanded ? '過去の履歴を閉じる' : '過去の履歴をすべて見る'),
+              style: TextButton.styleFrom(
+                foregroundColor: widget.scheme.primary,
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  side: BorderSide(color: widget.scheme.primary.withValues(alpha: 0.2)),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ],
+    );
+  }
+
+  Widget _buildSectionTitle(ColorScheme scheme, TextTheme textTheme, String title) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 48, bottom: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 6,
+                height: 24,
+                decoration: BoxDecoration(
+                  color: scheme.primary,
+                  borderRadius: BorderRadius.circular(3),
+                ),
+              ),
+              const SizedBox(width: 14),
+              Text(
+                title,
+                style: textTheme.titleLarge?.copyWith(
+                  color: scheme.onSurface,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  letterSpacing: 0.5,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Divider(
+            color: scheme.outlineVariant.withValues(alpha: 0.6),
+            thickness: 1,
+            height: 1,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAnnouncementItem(announceUpdateApp announcement) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Text(
+                announcement.date,
+                style: widget.textTheme.labelLarge?.copyWith(
+                  color: widget.scheme.primary,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'monospace',
+                ),
+              ),
+              const SizedBox(width: 12),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                decoration: BoxDecoration(
+                  color: widget.scheme.surfaceContainerHighest,
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Text(
+                  'v${announcement.version}',
+                  style: widget.textTheme.labelSmall?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          ...announcement.contents.map((content) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Text(
+                content,
+                style: widget.textTheme.bodyMedium?.copyWith(
+                  color: widget.scheme.onSurfaceVariant,
+                  height: 1.6,
+                ),
+              ),
+            );
+          }),
+          const Divider(height: 32),
         ],
       ),
     );
