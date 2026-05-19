@@ -1,13 +1,14 @@
-import 'package:flutter/material.dart';
+
+import 'package:sasae_portal/value/announcements_list.dart';
 
 /// Represents a software project or application developed by Sasae Works.
 class Project {
   const Project({
     required this.title,
     required this.icon,
-    required this.summary,//最初のページで出す要約テキスト
-    required this.recommendedText,//このアプリがおすすめな人みたいなテキスト
-    required this.mainText,//凄く長いストアに出してる詳細なテキスト
+    required this.summary, //最初のページで出す要約テキスト
+    required this.recommendedText, //このアプリがおすすめな人みたいなテキスト
+    required this.mainText, //凄く長いストアに出してる詳細なテキスト
     required this.techStack,
     required this.contentsText,
     required this.attentionToDetail,
@@ -18,10 +19,15 @@ class Project {
     required this.createDate,
     required this.updateDate,
     required this.version,
+    required this.appType,
   });
 
   /// The name of the project.
   final String title;
+
+  /// The enum type for announcement filtering.
+  final CreatedAPP appType;
+  
 
   /// The asset path to the icon representing the project.
   final String icon;

@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:sasae_portal/common/store_link_button_widget.dart';
 import 'package:sasae_portal/models/project.dart';
+import 'package:sasae_portal/value/announcements_list.dart';
 
 /// A screen that displays detailed information about a specific [Project].
 class ProjectDetailScreen extends StatelessWidget {
@@ -13,6 +14,9 @@ class ProjectDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+
+    // Filter announcements for this project
+    final projectAnnouncements = announceAppList.where((a) => a.createdAPP == project.appType).toList();
 
     return Scaffold(
       appBar: AppBar(
@@ -147,6 +151,61 @@ class ProjectDetailScreen extends StatelessWidget {
                             height: 1.8,
                           ),
                         ),
+
+                        if (projectAnnouncements.isNotEmpty) ...[
+                          _buildSectionTitle(scheme, textTheme, 'アップデート履歴'),
+                          const SizedBox(height: 8),
+                          ...projectAnnouncements.map((announcement) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text(
+                                        announcement.date,
+                                        style: textTheme.labelLarge?.copyWith(
+                                          color: scheme.primary,
+                                          fontWeight: FontWeight.bold,
+                                          fontFamily: 'monospace',
+                                        ),
+                                      ),
+                                      const SizedBox(width: 12),
+                                      Container(
+                                        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+                                        decoration: BoxDecoration(
+                                          color: scheme.surfaceContainerHighest,
+                                          borderRadius: BorderRadius.circular(6),
+                                        ),
+                                        child: Text(
+                                          'v${announcement.version}',
+                                          style: textTheme.labelSmall?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  const SizedBox(height: 8),
+                                  ...announcement.contents.map((content) {
+                                    return Padding(
+                                      padding: const EdgeInsets.only(bottom: 4),
+                                      child: Text(
+                                        content,
+                                        style: textTheme.bodyMedium?.copyWith(
+                                          color: scheme.onSurfaceVariant,
+                                          height: 1.6,
+                                        ),
+                                      ),
+                                    );
+                                  }),
+                                  const Divider(height: 32),
+                                ],
+                              ),
+                            );
+                          }),
+                        ],
 
                         const SizedBox(height: 32),
 

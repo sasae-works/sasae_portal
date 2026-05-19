@@ -2,8 +2,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:sasae_portal/common/store_link_button_widget.dart';
 import 'package:sasae_portal/models/project.dart';
-import 'package:sasae_portal/screens/project_detail_screen.dart';
 import 'package:sasae_portal/screens/privacy_policy_screen.dart';
+import 'package:sasae_portal/screens/project_detail_screen.dart';
+import 'package:sasae_portal/value/announcements_list.dart';
+
 
 /// The main landing page of the Sasae Works portal website.
 /// This screen includes a hero section, a list of projects, contact info, and a footer.
@@ -157,6 +159,7 @@ final List<Project> _allProjects = [
     createDate: '2022年10月26日',
     updateDate: '2025年10月23日',
     version: '2.1.0',
+    appType: CreatedAPP.THREEGOODTHINGS,
   ),
   Project(
     title: '褒め日記',
@@ -164,17 +167,18 @@ final List<Project> _allProjects = [
     summary: "『褒め日記』 - あなたの小さな成功を記録するアプリ！毎日, 自分を褒めることでポジティブな自分になりましょう😊",
     recommendedText:
         '★ このアプリがおすすめな人 ★\n・日記を書く習慣を身つけたい方\n・ポジティブな思考を持ちたい方\n・忙しくて時間がない方\n・過去の思い出を振り返りたい方:\n・分かりやすい成果をみて肯定感アップ\n・SNSでのシェアを楽しみたい方',
-    mainText: "",
-    contentsText: "開発の背景",
-    attentionToDetail: "こだわり",
+    mainText: "「褒め日記」は、自分を褒める習慣をつけることで、自己肯定感を高めるための日記アプリです。どんなに小さなことでも構いません。「今日は早起きできた」「美味しいご飯を食べた」「仕事を頑張った」など、日々の自分を認め、褒めてあげることで、心に余裕とポジティブな変化をもたらします。\n\n【主な特徴】\n\n■ シンプルで続けやすい設計\n「自分を褒める」ことだけに集中できるよう、複雑な機能を削ぎ落としたシンプルなインターフェースを採用しています。\n\n■ 褒め言葉の例文集\n「何を書いていいかわからない」という時でも、あらかじめ用意された豊富な例文から選ぶことで、簡単に日記を書き始めることができます。\n\n■ ポジティブな振り返り\n過去に書いた「褒め」の記録を読み返すことで、自分がどれだけ成長し、頑張ってきたかを再確認できます。\n\n一日の終わりに、自分への「お疲れ様」と「すごい！」を届けてみませんか？",
+    contentsText: "私自身、自分に厳しくなりがちな性格で、どうしても自分の至らない点ばかりに目が行ってしまっていました。そんな時、「褒め日記」という手法を知り、実際に手書きで始めてみたところ、少しずつ心が軽くなるのを実感しました。この体験を、もっと手軽に、多くの人に届けることができないかと考え、開発を始めたのがこのアプリです。",
+    attentionToDetail: "・ユーザーがアプリを開くたびに温かい気持ちになれるよう、優しく柔らかなカラーパレットを採用しました。\n・入力を挫折させないよう、独自の「例文アシスト機能」を搭載。ボタン一つでポジティブな言葉が補完されます。\n・シェア機能では、SNSに投稿したくなるような、可愛らしくデザインされた画像が生成されるよう調整を重ねました。",
     jpImageList: List.generate(8, (i) => 'assets/homeNikki/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
     enImageList: List.generate(8, (i) => 'assets/homeNikki/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
     techStack: 'Flutter / Dart / Drift',
     googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.homerarejyouzu',
     appStoreLink: 'https://apps.apple.com/jp/app/%E8%A4%92%E3%82%81%E6%97%A5%E8%A8%98/id1617944420',
     createDate: '2022年3月29日',
-    updateDate: '2025年6月19日',
-    version: '1.8.0',
+    updateDate: '2025年10月23日',
+    version: '1.8.1',
+    appType: CreatedAPP.HOMENIKKI,
   ),
   Project(
     title: 'ココロリサーチ',
@@ -182,10 +186,10 @@ final List<Project> _allProjects = [
     summary: "うつや双極性障害の方や復職を目指している方の生活リズムを可視化。\n医師への提示もスムーズにする活動記録ツールです。",
     recommendedText:
         '★ このアプリがおすすめな人 ★\n・生活パターンを客観的に見たい方\n✓昼夜逆転など崩れた生活リズムの改善したい\n・メンタルヘルスの不調（うつ病、双極性障害、統合失調症など）や病気、怪我などからの復職や就職を目指したい\n・病気の再発防止とセルフケア\n・ストレスを感じる活動や気分が良くなる活動を知りたい\n・お薬の管理と飲み忘れを防止\n・主治医や職場の方とデータを共有し、アドバイスや今後の目標を立てられる',
-    mainText: "",
+    mainText: "「ココロリサーチ」は、メンタルヘルスの安定と回復をサポートするための総合的なライフログアプリです。睡眠、気分、活動内容、服薬状況を記録することで、自分の体調の波を客観的に把握し、再発防止や通院時の相談をスムーズにします。\n\n【主な機能】\n\n■ 24時間生活リズム表\n一日の活動を色分けして記録。グラフ化されることで、睡眠時間の過不足や活動の偏りが一目でわかります。\n\n■ 気分と体調のトラッキング\nその時の気分や体調をアイコンで記録。統計画面で、どのような活動が自分の気分に影響を与えているか分析できます。\n\n■ 服薬管理・アラーム\n飲み忘れを防ぐためのリマインダー機能と、飲んだ時間を正確に記録できる機能を搭載。\n\n■ レポート出力（PDF）\n記録したデータをPDF形式で出力可能。印刷して主治医に渡したり、カウンセリングの資料として活用できます。\n\nあなたの「ココロ」の変化を、データの力で可視化し、安定した毎日への歩みをサポートします。",
     contentsText:
         "双極性障害の方や復職したい人向けのアプリが数少なく、また既にある物を使ってみて自分なりにこうした方が使いやすいのではないかと思い、その他の必要と思える機能の追加（お薬の飲み忘れ防止など）を付け加えて作ってみました",
-    attentionToDetail: "こだわり",
+    attentionToDetail: "・医療機関での提示を想定し、グラフや表はカラーユニバーサルデザインを意識した配色を採用しました。\n・体調が優れない時でも入力負担が最小限になるよう、タップ中心の直感的なUIを目指しました。\n・プライバシーに配慮し、端末内でのデータ保存を基本としつつ、必要な時だけPDF化できる仕様にこだわりました。",
     jpImageList: List.generate(8, (i) => 'assets/kokoroResearch/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
     enImageList: List.generate(8, (i) => 'assets/kokoroResearch/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
     techStack: 'Flutter / Dart / Drift',
@@ -193,8 +197,9 @@ final List<Project> _allProjects = [
     appStoreLink:
         'https://apps.apple.com/jp/app/%E3%82%B3%E3%82%B3%E3%83%AD%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81/id6499306435',
     createDate: '2024年9月18日',
-    updateDate: '2025年10月22日',
-    version: '1.3.0',
+    updateDate: '2026年2月19日',
+    version: '1.4.1',
+    appType: CreatedAPP.KOKORORESESEARCH,
   ),
   Project(
     title: 'バッグの中身',
@@ -202,9 +207,9 @@ final List<Project> _allProjects = [
     summary: "「あれ持ったっけ？」を解消。カバンの中身をリスト化し、忘れ物をゼロにする持ち物管理アプリです。バッグごとの入れ替えもスムーズに。",
     recommendedText:
         '★ このアプリがおすすめな人 ★\n・バッグに入れ忘れた物を確認したい人\n・バッグに何が入っているかスマホで確認したい\n・バッグを沢山使い分けて物の行方が分からなくなる人',
-    mainText: "",
-    contentsText: "開発の背景",
-    attentionToDetail: "こだわり", //TODO 英語も画像できたら追加
+    mainText: "「バッグの中身」は、忘れ物を物理的に、そして精神的にゼロにするための持ち物管理アプリです。通勤用、ジム用、旅行用など、複数のバッグごとに中身をリスト化し、チェックリストとして活用できます。\n\n【便利な使い方】\n\n■ バッグごとのアイテム管理\nそれぞれのバッグに何が入っているかを画像付きで記録。バッグの中身を入れ替える際も、リストを見ながら漏れなく移動できます。\n\n■ 持ち出しチェック機能\n出かける直前にアプリを開いてチェック。一つひとつ確認することで、「あ！忘れた！」という不安から解放されます。\n\n■ 画像でパッと確認\nテキストだけでなく、アイテムの写真を登録できるため、視覚的に素早く確認が可能です。\n\n持ち物の不安をなくして、もっと身軽に、もっと自信を持って外出しましょう。",
+    contentsText: "私自身、頻繁にバッグを使い分ける中で、財布や鍵、イヤホンなどを別のバッグに入れっぱなしにして外出してしまうことが多々ありました。既存のToDoアプリでは「バッグの中身」という概念を管理しづらかったため、専用のアプリとして開発しました。",
+    attentionToDetail: "・「複数のバッグ間でアイテムを移動させる」という操作をいかにスムーズに行えるかに注力しました。\n・リストの並び替えやカテゴリー分けを自由に行えるようにし、ユーザーそれぞれの整理スタイルに合わせられるようにしました。",
     jpImageList: List.generate(5, (i) => 'assets/bagNakami/jp/bag-screenshot${i + 1}.png'),
     enImageList: [],
     techStack: 'Flutter / Dart / Drift',
@@ -213,11 +218,12 @@ final List<Project> _allProjects = [
     createDate: '2022年6月22日',
     updateDate: '2022年6月22日',
     version: '1.0.0',
+    appType: CreatedAPP.BAGNONAKAMI,
   ),
   Project(
     title: '焼肉判定AI（Preparing）',
     icon: 'assets/yakiniku/焼肉アイコン.png',
-    summary: "AIが肉の「最高の焼き加減」を判定。色覚の多様性により焼き具合の判断が難しい方をサポートする、ユニバーサルデザインの試みです。",
+    summary: "AIが肉の「最高の焼き加減」を判定。色覚の多様性により焼き具合の判断が難しい方をサポートする、ユニバーサルデザイン of AI です。",
     recommendedText:
         '★ このアプリがおすすめな人 ★ \n・色覚多様性（P型、D型、T型など）をお持ちで、肉の色の変化が分かりにくい方。\n・焼肉店やBBQで、生焼けによる食中毒が心配な方。\n・ステーキを自分好みの絶妙な焼き加減で仕上げたい方。\n・誰にも頼らず、自分のペースで安心して食事を楽しみたい方。',
     mainText:
@@ -240,14 +246,11 @@ final List<Project> _allProjects = [
     createDate: '',
     updateDate: '',
     version: '1.0.0',
+    appType: CreatedAPP.YAKINIKU,
   ),
 ];
 
-final List<Map<String, String>> _allAnnouncements = [
-  {'date': '2026/04/15', 'tag': '3 Good Things', 'content': 'Google Driveバックアップ機能を強化'},
-  {'date': '2026/03/10', 'tag': 'ココロリサーチ', 'content': 'カレンダー画面の読み込み速度を向上'},
-  {'date': '2025/11/15', 'tag': '褒め日記', 'content': 'App Store / Google Play にて初回リリース'},
-];
+const List<Map<String, String>> _allAnnouncements = [];
 
 // --- Hero Section ---
 /// Displays the main slogan and introduction of Sasae Works.
@@ -530,9 +533,12 @@ class _AnnouncementsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void navigateToProject(String tag) {
+    // Show only the latest 3 announcements for the top page
+    final latestAnnouncements = announceAppList.take(3).toList();
+
+    void navigateToProject(CreatedAPP appType) {
       final project = _allProjects.firstWhere(
-        (p) => p.title.contains(tag),
+        (p) => p.appType == appType,
         orElse: () => _allProjects.first,
       );
       Navigator.of(context).push(
@@ -544,7 +550,7 @@ class _AnnouncementsSection extends StatelessWidget {
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 800),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 0, 24, 80), // 上部マージンを0にしてHeroに寄せる
+          padding: const EdgeInsets.fromLTRB(24, 0, 24, 80),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -571,29 +577,31 @@ class _AnnouncementsSection extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 24),
-              for (final item in _allAnnouncements)
+              for (final item in latestAnnouncements)
                 InkWell(
-                  onTap: () => navigateToProject(item['tag']!),
+                  onTap: () => navigateToProject(item.createdAPP),
                   borderRadius: BorderRadius.circular(8),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
                     child: Row(
                       children: [
                         SizedBox(
-                          width: 110,
+                          width: 120,
                           child: Text(
-                            item['date']!,
+                            item.date,
                             style: textTheme.bodyMedium?.copyWith(
                               color: scheme.onSurfaceVariant,
                               fontFamily: 'monospace',
                             ),
                           ),
                         ),
-                        const SizedBox(width: 12),
+                        Image.asset(item.createdAPP.imagePath, width: 30, height: 30,),
+                        const SizedBox(width: 4),
                         Expanded(
                           child: Text(
-                            '【${item['tag']}】 ${item['content']}',
+                            '${_getAppName(item.createdAPP)} ${item.contents.first} ${item.contents[1]}',
                             style: textTheme.bodyLarge,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                         Icon(Icons.chevron_right, size: 20, color: scheme.outlineVariant),
@@ -606,6 +614,16 @@ class _AnnouncementsSection extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _getAppName(CreatedAPP app) {
+    switch (app) {
+      case CreatedAPP.HOMENIKKI: return '褒め日記';
+      case CreatedAPP.THREEGOODTHINGS: return '3 Good Things';
+      case CreatedAPP.KOKORORESESEARCH: return 'ココロリサーチ';
+      case CreatedAPP.BAGNONAKAMI: return 'バッグの中身';
+      case CreatedAPP.YAKINIKU: return '焼肉判定AI';
+    }
   }
 }
 
