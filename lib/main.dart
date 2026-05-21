@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sasae_portal/screens/home_screen.dart';
 
 void main() {
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
         ),
-        textTheme: base.textTheme.apply(
+        textTheme: GoogleFonts.notoSansJpTextTheme(base.textTheme).apply(
           bodyColor: base.colorScheme.onSurface,
           displayColor: base.colorScheme.onSurface,
         ),

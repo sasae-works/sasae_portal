@@ -533,6 +533,9 @@ class _AnnouncementsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    final isMobile = width < 680;
+
     // Show only the latest 3 announcements for the top page
     final latestAnnouncements = announceAppList.take(3).toList();
 
@@ -576,34 +579,58 @@ class _AnnouncementsSection extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
               for (final item in latestAnnouncements)
                 InkWell(
                   onTap: () => navigateToProject(item.createdAPP),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(12),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 10),
                     child: Row(
                       children: [
-                        SizedBox(
-                          width: 120,
-                          child: Text(
-                            item.date,
-                            style: textTheme.bodyMedium?.copyWith(
-                              color: scheme.onSurfaceVariant,
-                              fontFamily: 'monospace',
+                        if (!isMobile) ...[
+                          SizedBox(
+                            width: 130,
+                            child: Text(
+                              item.date,
+                              style: textTheme.bodyMedium?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                                fontFamily: 'monospace',
+                              ),
                             ),
                           ),
+                        ],
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: Image.asset(item.createdAPP.imagePath, width: 36, height: 36),
                         ),
-                        Image.asset(item.createdAPP.imagePath, width: 30, height: 30,),
-                        const SizedBox(width: 4),
+                        const SizedBox(width: 16),
                         Expanded(
-                          child: Text(
-                            '${_getAppName(item.createdAPP)} ${item.contents.first} ${item.contents[1]}',
-                            style: textTheme.bodyLarge,
-                            overflow: TextOverflow.ellipsis,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              if (isMobile)
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 2),
+                                  child: Text(
+                                    item.date,
+                                    style: textTheme.labelSmall?.copyWith(
+                                      color: scheme.onSurfaceVariant,
+                                      fontFamily: 'monospace',
+                                    ),
+                                  ),
+                                ),
+                              Text(
+                                '${_getAppName(item.createdAPP)}: ${item.contents.take(2).join(' ')}',
+                                style: textTheme.bodyLarge?.copyWith(
+                                  height: 1.4,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ],
                           ),
                         ),
+                        const SizedBox(width: 8),
                         Icon(Icons.chevron_right, size: 20, color: scheme.outlineVariant),
                       ],
                     ),
