@@ -49,7 +49,9 @@ class MyApp extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
         ),
-        textTheme: GoogleFonts.notoSansJpTextTheme(base.textTheme).apply(
+        textTheme: GoogleFonts.zenKakuGothicNewTextTheme(base.textTheme).apply(
+          ///noto系列は、と。の位置が真ん中によって変な感じNewになるのでやめた方がよさそう
+        // textTheme: GoogleFonts.notoSansJpTextTheme(base.textTheme).apply(
           bodyColor: base.colorScheme.onSurface,
           displayColor: base.colorScheme.onSurface,
         ),

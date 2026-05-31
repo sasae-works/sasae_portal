@@ -138,116 +138,116 @@ class _HomeScreenState extends State<HomeScreen> {
 // --- Data ---
 
 final List<Project> _allProjects = [
-  Project(
-    title: '3 Good Things〜寝る前3つの良かったこと日記',
-    icon: 'assets/3GoodThings/3グッドシングスアイコン.png',
-    summary: "１日で起きた3つの良いことを書く習慣を続けるための無料日記アプリです。毎日寝る前の記録が、あなたの幸福感や睡眠の質の改善に役立つことが報告されています😴",
-    recommendedText:
-        '★ このアプリがおすすめな人 ★\n・日記を習慣にしたいけど続かない\n・ネガティブな考えを改善したい\n・忙しくても自分と向き合う時間が欲しい\n・小さな幸せや成長を感じたい\n・写真や音声でも記録を残したい。\n・バックアップ対応の安心な日記アプリを探している',
-    mainText:
-        '「3 Good Things」は、心理学者のマーティン・セリグマン博士が提唱したポジティブ心理学の手法に基づいた日記アプリです。\n\n毎日寝る前に、その日にあった「3つの良いこと」を記録するだけで、あなたの脳は自然とポジティブな出来事に注目するようになります。科学的に証明されたこの習慣は、幸福感の向上、ストレスの軽減、そして睡眠の質の改善に大きな効果をもたらします。\n\n【アプリの特徴】\n\n■ 継続を支えるトロフィーシステム\n「三日坊主で終わらせない」ために、あなたの継続をバッジやトロフィーで表彰します。小さな積み重ねが目に見える形で蓄積されるため、モチベーションを維持しやすくなります。\n\n■ 写真と音声での豊かな記録\n言葉だけでは表現しきれない感情を、写真や音声メッセージとして残すことができます。その時の空気感までパッケージして、未来の自分へのプレゼントにしましょう。\n\n■ データの安心バックアップ\nクラウドバックアップ機能により、機種変更時や万が一の際も大切な記録を失うことはありません。\n\n■ リラックスを誘うナイトモード設計\n就寝前の利用を想定し、目に優しいダークモードと落ち着いた配色を採用しています。一日の終わりに、心穏やかなひとときを提供します。\n\nポジティブな変化は、今夜の3つの書き込みから始まります。',
-    contentsText:
-        "褒め日記に次ぐ２本目のリリースアプリ。かつて図書館で知り、3GoodThingsをやっていた時期がありましたが、中々続かずに辞めてしまいました。それをふと思い出しGooglePlayなどで調べてみると、先発のアプリは更新が停滞気味で「もっと良いものを作れるのではないか？」と思い作った次第です。",
-    attentionToDetail:
-        "・アプリの配色は夜に使うということで目に優しくリラックス系の色である緑を選びました。\n・アイコンは3という数字だけではシンプル過ぎるので、チェックを３つ付けました。\nこれは１つ良いことを書くごとにチェックを付けるアプリの仕組みを表しているものでもあります\n・できるだけ長続きしてほしいという願いを込めて、少しずつ成長している実感を得てもらうためにトロフィー機能を実装。\n・飽きないように色やフォント背景パターンなどの追加",
-    jpImageList: List.generate(8, (i) => 'assets/3GoodThings/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
-    enImageList: List.generate(8, (i) => 'assets/3GoodThings/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
-    techStack: 'Flutter / Dart / Drift',
-    googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.three_good_things',
-    appStoreLink:
-        'https://apps.apple.com/jp/app/3-good-things-%E5%AF%9D%E3%82%8B%E5%89%8D3%E3%81%A4%E3%81%AE%E8%89%AF%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8%E6%97%A5%E8%A8%98/id6443807421',
-    createDate: '2022年10月26日',
-    updateDate: '2025年10月23日',
-    version: '2.1.0',
-    appType: CreatedAPP.THREEGOODTHINGS,
-  ),
-  Project(
-    title: '褒め日記',
-    icon: 'assets/homeNikki/褒め日記アイコン.png',
-    summary: "『褒め日記』 - あなたの小さな成功を記録するアプリ！毎日, 自分を褒めることでポジティブな自分になりましょう😊",
-    recommendedText:
-        '★ このアプリがおすすめな人 ★\n・日記を書く習慣を身つけたい方\n・ポジティブな思考を持ちたい方\n・忙しくて時間がない方\n・過去の思い出を振り返りたい方:\n・分かりやすい成果をみて肯定感アップ\n・SNSでのシェアを楽しみたい方',
-    mainText: "「褒め日記」は、自分を褒める習慣をつけることで、自己肯定感を高めるための日記アプリです。どんなに小さなことでも構いません。「今日は早起きできた」「美味しいご飯を食べた」「仕事を頑張った」など、日々の自分を認め、褒めてあげることで、心に余裕とポジティブな変化をもたらします。\n\n【主な特徴】\n\n■ シンプルで続けやすい設計\n「自分を褒める」ことだけに集中できるよう、複雑な機能を削ぎ落としたシンプルなインターフェースを採用しています。\n\n■ 褒め言葉の例文集\n「何を書いていいかわからない」という時でも、あらかじめ用意された豊富な例文から選ぶことで、簡単に日記を書き始めることができます。\n\n■ ポジティブな振り返り\n過去に書いた「褒め」の記録を読み返すことで、自分がどれだけ成長し、頑張ってきたかを再確認できます。\n\n一日の終わりに、自分への「お疲れ様」と「すごい！」を届けてみませんか？",
-    contentsText: "私自身、自分に厳しくなりがちな性格で、どうしても自分の至らない点ばかりに目が行ってしまっていました。そんな時、「褒め日記」という手法を知り、実際に手書きで始めてみたところ、少しずつ心が軽くなるのを実感しました。この体験を、もっと手軽に、多くの人に届けることができないかと考え、開発を始めたのがこのアプリです。",
-    attentionToDetail: "・ユーザーがアプリを開くたびに温かい気持ちになれるよう、優しく柔らかなカラーパレットを採用しました。\n・入力を挫折させないよう、独自の「例文アシスト機能」を搭載。ボタン一つでポジティブな言葉が補完されます。\n・シェア機能では、SNSに投稿したくなるような、可愛らしくデザインされた画像が生成されるよう調整を重ねました。",
-    jpImageList: List.generate(8, (i) => 'assets/homeNikki/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
-    enImageList: List.generate(8, (i) => 'assets/homeNikki/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
-    techStack: 'Flutter / Dart / Drift',
-    googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.homerarejyouzu',
-    appStoreLink: 'https://apps.apple.com/jp/app/%E8%A4%92%E3%82%81%E6%97%A5%E8%A8%98/id1617944420',
-    createDate: '2022年3月29日',
-    updateDate: '2025年10月23日',
-    version: '1.8.1',
-    appType: CreatedAPP.HOMENIKKI,
-  ),
-  Project(
-    title: 'ココロリサーチ',
-    icon: 'assets/kokoroResearch/ココロリサーチアイコン.png',
-    summary: "うつや双極性障害の方や復職を目指している方の生活リズムを可視化。\n医師への提示もスムーズにする活動記録ツールです。",
-    recommendedText:
-        '★ このアプリがおすすめな人 ★\n・生活パターンを客観的に見たい方\n✓昼夜逆転など崩れた生活リズムの改善したい\n・メンタルヘルスの不調（うつ病、双極性障害、統合失調症など）や病気、怪我などからの復職や就職を目指したい\n・病気の再発防止とセルフケア\n・ストレスを感じる活動や気分が良くなる活動を知りたい\n・お薬の管理と飲み忘れを防止\n・主治医や職場の方とデータを共有し、アドバイスや今後の目標を立てられる',
-    mainText: "「ココロリサーチ」は、メンタルヘルスの安定と回復をサポートするための総合的なライフログアプリです。睡眠、気分、活動内容、服薬状況を記録することで、自分の体調の波を客観的に把握し、再発防止や通院時の相談をスムーズにします。\n\n【主な機能】\n\n■ 24時間生活リズム表\n一日の活動を色分けして記録。グラフ化されることで、睡眠時間の過不足や活動の偏りが一目でわかります。\n\n■ 気分と体調のトラッキング\nその時の気分や体調をアイコンで記録。統計画面で、どのような活動が自分の気分に影響を与えているか分析できます。\n\n■ 服薬管理・アラーム\n飲み忘れを防ぐためのリマインダー機能と、飲んだ時間を正確に記録できる機能を搭載。\n\n■ レポート出力（PDF）\n記録したデータをPDF形式で出力可能。印刷して主治医に渡したり、カウンセリングの資料として活用できます。\n\nあなたの「ココロ」の変化を、データの力で可視化し、安定した毎日への歩みをサポートします。",
-    contentsText:
-        "双極性障害の方や復職したい人向けのアプリが数少なく、また既にある物を使ってみて自分なりにこうした方が使いやすいのではないかと思い、その他の必要と思える機能の追加（お薬の飲み忘れ防止など）を付け加えて作ってみました",
-    attentionToDetail: "・医療機関での提示を想定し、グラフや表はカラーユニバーサルデザインを意識した配色を採用しました。\n・体調が優れない時でも入力負担が最小限になるよう、タップ中心の直感的なUIを目指しました。\n・プライバシーに配慮し、端末内でのデータ保存を基本としつつ、必要な時だけPDF化できる仕様にこだわりました。",
-    jpImageList: List.generate(8, (i) => 'assets/kokoroResearch/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
-    enImageList: List.generate(8, (i) => 'assets/kokoroResearch/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
-    techStack: 'Flutter / Dart / Drift',
-    googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.kokoro_research',
-    appStoreLink:
-        'https://apps.apple.com/jp/app/%E3%82%B3%E3%82%B3%E3%83%AD%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81/id6499306435',
-    createDate: '2024年9月18日',
-    updateDate: '2026年2月19日',
-    version: '1.4.1',
-    appType: CreatedAPP.KOKORORESESEARCH,
-  ),
-  Project(
-    title: 'バッグの中身',
-    icon: 'assets/bagNakami/バッグの中身アイコン.png',
-    summary: "「あれ持ったっけ？」を解消。カバンの中身をリスト化し、忘れ物をゼロにする持ち物管理アプリです。バッグごとの入れ替えもスムーズに。",
-    recommendedText:
-        '★ このアプリがおすすめな人 ★\n・バッグに入れ忘れた物を確認したい人\n・バッグに何が入っているかスマホで確認したい\n・バッグを沢山使い分けて物の行方が分からなくなる人',
-    mainText: "「バッグの中身」は、忘れ物を物理的に、そして精神的にゼロにするための持ち物管理アプリです。通勤用、ジム用、旅行用など、複数のバッグごとに中身をリスト化し、チェックリストとして活用できます。\n\n【便利な使い方】\n\n■ バッグごとのアイテム管理\nそれぞれのバッグに何が入っているかを画像付きで記録。バッグの中身を入れ替える際も、リストを見ながら漏れなく移動できます。\n\n■ 持ち出しチェック機能\n出かける直前にアプリを開いてチェック。一つひとつ確認することで、「あ！忘れた！」という不安から解放されます。\n\n■ 画像でパッと確認\nテキストだけでなく、アイテムの写真を登録できるため、視覚的に素早く確認が可能です。\n\n持ち物の不安をなくして、もっと身軽に、もっと自信を持って外出しましょう。",
-    contentsText: "私自身、頻繁にバッグを使い分ける中で、財布や鍵、イヤホンなどを別のバッグに入れっぱなしにして外出してしまうことが多々ありました。既存のToDoアプリでは「バッグの中身」という概念を管理しづらかったため、専用のアプリとして開発しました。",
-    attentionToDetail: "・「複数のバッグ間でアイテムを移動させる」という操作をいかにスムーズに行えるかに注力しました。\n・リストの並び替えやカテゴリー分けを自由に行えるようにし、ユーザーそれぞれの整理スタイルに合わせられるようにしました。",
-    jpImageList: List.generate(5, (i) => 'assets/bagNakami/jp/bag-screenshot${i + 1}.png'),
-    enImageList: [],
-    techStack: 'Flutter / Dart / Drift',
-    googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.simple_contents_of_bag',
-    appStoreLink: 'https://apps.apple.com/jp/app/%E3%83%90%E3%83%83%E3%82%B0%E3%81%AE%E4%B8%AD%E8%BA%AB/id1626800664',
-    createDate: '2022年6月22日',
-    updateDate: '2022年6月22日',
-    version: '1.0.0',
-    appType: CreatedAPP.BAGNONAKAMI,
-  ),
-  Project(
-    title: '焼肉判定AI（Preparing）',
-    icon: 'assets/yakiniku/焼肉アイコン.png',
-    summary: "AIが肉の「最高の焼き加減」を判定。色覚の多様性により焼き具合の判断が難しい方をサポートする、ユニバーサルデザイン of AI です。",
-    recommendedText:
-        '★ このアプリがおすすめな人 ★ \n・色覚多様性（P型、D型、T型など）をお持ちで、肉の色の変化が分かりにくい方。\n・焼肉店やBBQで、生焼けによる食中毒が心配な方。\n・ステーキを自分好みの絶妙な焼き加減で仕上げたい方。\n・誰にも頼らず、自分のペースで安心して食事を楽しみたい方。',
-    mainText:
-        '「焼肉判定AI」は、最新の物体認識AI（YOLO）を活用して、網の上の肉が「生」「食べ頃」「焼きすぎ」のどの状態にあるかをリアルタイムで判別する、ユニバーサルデザイン・アプリです。\n\n【開発の目的】\n世の中には「色の変化」を捉えるのが苦手な色覚多様性（D型やP型など）を持つ方が多くいらっしゃいます。そうした方々にとって、赤から茶色へ変わる「肉の焼き加減」の判断は非常に難しく、焼肉を楽しむ際のハードルになっていました。\n\n本プロジェクトは、テクノロジーの力でそのバリアを取り除き、誰もが自分のペースで、安心して美味しいお肉を楽しめる社会を目指しています。\n\n【主な機能】\n■ リアルタイムAI解析\nスマホのカメラをかざすだけで、AIが瞬時に肉の状態を識別します。\n\n■ 視認性の高い通知\n色だけに頼らず、テキストとアイコンによる明確なフィードバックを行います。\n\n■ 多様な肉の種類に対応（予定）\n牛肉だけでなく、豚肉や鶏肉など、焼き加減の判断が難しい食材の学習を進めています。',
-    contentsText:
-        "私自身、色覚多様性を持つ友人と食事をした際、彼が肉の焼き具合を何度も確認している姿を見て、この課題を解決したいと考えました。単なる「便利ツール」ではなく、誰かの「できない」を「できる」に変える、FlutterとAIの可能性を追求した一作です。",
-    attentionToDetail:
-        "・YOLOを用いた画像認識モデルの軽量化により、スマホ上でのスムーズな動作を実現。\n・UIは極力シンプルに。食事の楽しさを邪魔しない、直感的な操作感にこだわりました。\n・現在、より精度の高い判定を目指し、様々な照明環境（焼肉店の独特な照明など）での学習データを収集中です。",
-    jpImageList: [
-      'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 1.png',
-      'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 2.png',
-      'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 3.png',
-      'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 4.png',
-      'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 5.png',
-    ],
-    enImageList: [],
-    techStack: 'Flutter / YOLO / Python',
-    googlePlayLink: '',
-    appStoreLink: '',
-    createDate: '',
-    updateDate: '',
-    version: '1.0.0',
-    appType: CreatedAPP.YAKINIKU,
-  ),
+  // Project(
+  //   title: '3 Good Things〜寝る前3つの良かったこと日記',
+  //   icon: 'assets/3GoodThings/3グッドシングスアイコン.png',
+  //   summary: "１日で起きた3つの良いことを書く習慣を続けるための無料日記アプリです。毎日寝る前の記録が、あなたの幸福感や睡眠の質の改善に役立つことが報告されています😴",
+  //   recommendedText:
+  //       '★ このアプリがおすすめな人 ★\n・日記を習慣にしたいけど続かない\n・ネガティブな考えを改善したい\n・忙しくても自分と向き合う時間が欲しい\n・小さな幸せや成長を感じたい\n・写真や音声でも記録を残したい。\n・バックアップ対応の安心な日記アプリを探している',
+  //   mainText:
+  //       '「3 Good Things」は、心理学者のマーティン・セリグマン博士が提唱したポジティブ心理学の手法に基づいた日記アプリです。\n\n毎日寝る前に、その日にあった「3つの良いこと」を記録するだけで、あなたの脳は自然とポジティブな出来事に注目するようになります。科学的に証明されたこの習慣は、幸福感の向上、ストレスの軽減、そして睡眠の質の改善に大きな効果をもたらします。\n\n【アプリの特徴】\n\n■ 継続を支えるトロフィーシステム\n「三日坊主で終わらせない」ために、あなたの継続をバッジやトロフィーで表彰します。小さな積み重ねが目に見える形で蓄積されるため、モチベーションを維持しやすくなります。\n\n■ 写真と音声での豊かな記録\n言葉だけでは表現しきれない感情を、写真や音声メッセージとして残すことができます。その時の空気感までパッケージして、未来の自分へのプレゼントにしましょう。\n\n■ データの安心バックアップ\nクラウドバックアップ機能により、機種変更時や万が一の際も大切な記録を失うことはありません。\n\n■ リラックスを誘うナイトモード設計\n就寝前の利用を想定し、目に優しいダークモードと落ち着いた配色を採用しています。一日の終わりに、心穏やかなひとときを提供します。\n\nポジティブな変化は、今夜の3つの書き込みから始まります。',
+  //   contentsText:
+  //       "褒め日記に次ぐ２本目のリリースアプリ。かつて図書館で知り、3GoodThingsをやっていた時期がありましたが、中々続かずに辞めてしまいました。それをふと思い出しGooglePlayなどで調べてみると、先発のアプリは更新が停滞気味で「もっと良いものを作れるのではないか？」と思い作った次第です。",
+  //   attentionToDetail:
+  //       "・アプリの配色は夜に使うということで目に優しくリラックス系の色である緑を選びました。\n・アイコンは3という数字だけではシンプル過ぎるので、チェックを３つ付けました。\nこれは１つ良いことを書くごとにチェックを付けるアプリの仕組みを表しているものでもあります\n・できるだけ長続きしてほしいという願いを込めて、少しずつ成長している実感を得てもらうためにトロフィー機能を実装。\n・飽きないように色やフォント背景パターンなどの追加",
+  //   jpImageList: List.generate(8, (i) => 'assets/3GoodThings/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
+  //   enImageList: List.generate(8, (i) => 'assets/3GoodThings/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
+  //   techStack: 'Flutter / Dart / Drift',
+  //   googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.three_good_things',
+  //   appStoreLink:
+  //       'https://apps.apple.com/jp/app/3-good-things-%E5%AF%9D%E3%82%8B%E5%89%8D3%E3%81%A4%E3%81%AE%E8%89%AF%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%93%E3%81%A8%E6%97%A5%E8%A8%98/id6443807421',
+  //   createDate: '2022年10月26日',
+  //   updateDate: '2025年10月23日',
+  //   version: '2.1.0',
+  //   appType: CreatedAPP.THREEGOODTHINGS,
+  // ),
+  // Project(
+  //   title: '褒め日記',
+  //   icon: 'assets/homeNikki/褒め日記アイコン.png',
+  //   summary: "『褒め日記』 - あなたの小さな成功を記録するアプリ！毎日, 自分を褒めることでポジティブな自分になりましょう😊",
+  //   recommendedText:
+  //       '★ このアプリがおすすめな人 ★\n・日記を書く習慣を身つけたい方\n・ポジティブな思考を持ちたい方\n・忙しくて時間がない方\n・過去の思い出を振り返りたい方:\n・分かりやすい成果をみて肯定感アップ\n・SNSでのシェアを楽しみたい方',
+  //   mainText: "「褒め日記」は、自分を褒める習慣をつけることで、自己肯定感を高めるための日記アプリです。どんなに小さなことでも構いません。「今日は早起きできた」「美味しいご飯を食べた」「仕事を頑張った」など、日々の自分を認め、褒めてあげることで、心に余裕とポジティブな変化をもたらします。\n\n【主な特徴】\n\n■ シンプルで続けやすい設計\n「自分を褒める」ことだけに集中できるよう、複雑な機能を削ぎ落としたシンプルなインターフェースを採用しています。\n\n■ 褒め言葉の例文集\n「何を書いていいかわからない」という時でも、あらかじめ用意された豊富な例文から選ぶことで、簡単に日記を書き始めることができます。\n\n■ ポジティブな振り返り\n過去に書いた「褒め」の記録を読み返すことで、自分がどれだけ成長し、頑張ってきたかを再確認できます。\n\n一日の終わりに、自分への「お疲れ様」と「すごい！」を届けてみませんか？",
+  //   contentsText: "私自身、自分に厳しくなりがちな性格で、どうしても自分の至らない点ばかりに目が行ってしまっていました。そんな時、「褒め日記」という手法を知り、実際に手書きで始めてみたところ、少しずつ心が軽くなるのを実感しました。この体験を、もっと手軽に、多くの人に届けることができないかと考え、開発を始めたのがこのアプリです。",
+  //   attentionToDetail: "・ユーザーがアプリを開くたびに温かい気持ちになれるよう、優しく柔らかなカラーパレットを採用しました。\n・入力を挫折させないよう、独自の「例文アシスト機能」を搭載。ボタン一つでポジティブな言葉が補完されます。\n・シェア機能では、SNSに投稿したくなるような、可愛らしくデザインされた画像が生成されるよう調整を重ねました。",
+  //   jpImageList: List.generate(8, (i) => 'assets/homeNikki/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
+  //   enImageList: List.generate(8, (i) => 'assets/homeNikki/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
+  //   techStack: 'Flutter / Dart / Drift',
+  //   googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.homerarejyouzu',
+  //   appStoreLink: 'https://apps.apple.com/jp/app/%E8%A4%92%E3%82%81%E6%97%A5%E8%A8%98/id1617944420',
+  //   createDate: '2022年3月29日',
+  //   updateDate: '2025年10月23日',
+  //   version: '1.8.1',
+  //   appType: CreatedAPP.HOMENIKKI,
+  // ),
+  // Project(
+  //   title: 'ココロリサーチ',
+  //   icon: 'assets/kokoroResearch/ココロリサーチアイコン.png',
+  //   summary: "うつや双極性障害の方や復職を目指している方の生活リズムを可視化。\n医師への提示もスムーズにする活動記録ツールです。",
+  //   recommendedText:
+  //       '★ このアプリがおすすめな人 ★\n・生活パターンを客観的に見たい方\n✓昼夜逆転など崩れた生活リズムの改善したい\n・メンタルヘルスの不調（うつ病、双極性障害、統合失調症など）や病気、怪我などからの復職や就職を目指したい\n・病気の再発防止とセルフケア\n・ストレスを感じる活動や気分が良くなる活動を知りたい\n・お薬の管理と飲み忘れを防止\n・主治医や職場の方とデータを共有し、アドバイスや今後の目標を立てられる',
+  //   mainText: "「ココロリサーチ」は、メンタルヘルスの安定と回復をサポートするための総合的なライフログアプリです。睡眠、気分、活動内容、服薬状況を記録することで、自分の体調の波を客観的に把握し、再発防止や通院時の相談をスムーズにします。\n\n【主な機能】\n\n■ 24時間生活リズム表\n一日の活動を色分けして記録。グラフ化されることで、睡眠時間の過不足や活動の偏りが一目でわかります。\n\n■ 気分と体調のトラッキング\nその時の気分や体調をアイコンで記録。統計画面で、どのような活動が自分の気分に影響を与えているか分析できます。\n\n■ 服薬管理・アラーム\n飲み忘れを防ぐためのリマインダー機能と、飲んだ時間を正確に記録できる機能を搭載。\n\n■ レポート出力（PDF）\n記録したデータをPDF形式で出力可能。印刷して主治医に渡したり、カウンセリングの資料として活用できます。\n\nあなたの「ココロ」の変化を、データの力で可視化し、安定した毎日への歩みをサポートします。",
+  //   contentsText:
+  //       "双極性障害の方や復職したい人向けのアプリが数少なく、また既にある物を使ってみて自分なりにこうした方が使いやすいのではないかと思い、その他の必要と思える機能の追加（お薬の飲み忘れ防止など）を付け加えて作ってみました",
+  //   attentionToDetail: "・医療機関での提示を想定し、グラフや表はカラーユニバーサルデザインを意識した配色を採用しました。\n・体調が優れない時でも入力負担が最小限になるよう、タップ中心の直感的なUIを目指しました。\n・プライバシーに配慮し、端末内でのデータ保存を基本としつつ、必要な時だけPDF化できる仕様にこだわりました。",
+  //   jpImageList: List.generate(8, (i) => 'assets/kokoroResearch/jp/Apple iPhone 11 Pro Max Screenshot $i.png'),
+  //   enImageList: List.generate(8, (i) => 'assets/kokoroResearch/en/Apple iPhone 11 Pro Max Screenshot $i.png'),
+  //   techStack: 'Flutter / Dart / Drift',
+  //   googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.kokoro_research',
+  //   appStoreLink:
+  //       'https://apps.apple.com/jp/app/%E3%82%B3%E3%82%B3%E3%83%AD%E3%83%AA%E3%82%B5%E3%83%BC%E3%83%81/id6499306435',
+  //   createDate: '2024年9月18日',
+  //   updateDate: '2026年2月19日',
+  //   version: '1.4.1',
+  //   appType: CreatedAPP.KOKORORESESEARCH,
+  // ),
+  // Project(
+  //   title: 'バッグの中身',
+  //   icon: 'assets/bagNakami/バッグの中身アイコン.png',
+  //   summary: "「あれ持ったっけ？」を解消。カバンの中身をリスト化し、忘れ物をゼロにする持ち物管理アプリです。バッグごとの入れ替えもスムーズに。",
+  //   recommendedText:
+  //       '★ このアプリがおすすめな人 ★\n・バッグに入れ忘れた物を確認したい人\n・バッグに何が入っているかスマホで確認したい\n・バッグを沢山使い分けて物の行方が分からなくなる人',
+  //   mainText: "「バッグの中身」は、忘れ物を物理的に、そして精神的にゼロにするための持ち物管理アプリです。通勤用、ジム用、旅行用など、複数のバッグごとに中身をリスト化し、チェックリストとして活用できます。\n\n【便利な使い方】\n\n■ バッグごとのアイテム管理\nそれぞれのバッグに何が入っているかを画像付きで記録。バッグの中身を入れ替える際も、リストを見ながら漏れなく移動できます。\n\n■ 持ち出しチェック機能\n出かける直前にアプリを開いてチェック。一つひとつ確認することで、「あ！忘れた！」という不安から解放されます。\n\n■ 画像でパッと確認\nテキストだけでなく、アイテムの写真を登録できるため、視覚的に素早く確認が可能です。\n\n持ち物の不安をなくして、もっと身軽に、もっと自信を持って外出しましょう。",
+  //   contentsText: "私自身、頻繁にバッグを使い分ける中で、財布や鍵、イヤホンなどを別のバッグに入れっぱなしにして外出してしまうことが多々ありました。既存のToDoアプリでは「バッグの中身」という概念を管理しづらかったため、専用のアプリとして開発しました。",
+  //   attentionToDetail: "・「複数のバッグ間でアイテムを移動させる」という操作をいかにスムーズに行えるかに注力しました。\n・リストの並び替えやカテゴリー分けを自由に行えるようにし、ユーザーそれぞれの整理スタイルに合わせられるようにしました。",
+  //   jpImageList: List.generate(5, (i) => 'assets/bagNakami/jp/bag-screenshot${i + 1}.png'),
+  //   enImageList: [],
+  //   techStack: 'Flutter / Dart / Drift',
+  //   googlePlayLink: 'https://play.google.com/store/apps/details?id=com.taylorsguild.simple_contents_of_bag',
+  //   appStoreLink: 'https://apps.apple.com/jp/app/%E3%83%90%E3%83%83%E3%82%B0%E3%81%AE%E4%B8%AD%E8%BA%AB/id1626800664',
+  //   createDate: '2022年6月22日',
+  //   updateDate: '2022年6月22日',
+  //   version: '1.0.0',
+  //   appType: CreatedAPP.BAGNONAKAMI,
+  // ),
+  // Project(
+  //   title: '焼肉判定AI（Preparing）',
+  //   icon: 'assets/yakiniku/焼肉アイコン.png',
+  //   summary: "AIが肉の「最高の焼き加減」を判定。色覚の多様性により焼き具合の判断が難しい方をサポートする、ユニバーサルデザイン of AI です。",
+  //   recommendedText:
+  //       '★ このアプリがおすすめな人 ★ \n・色覚多様性（P型、D型、T型など）をお持ちで、肉の色の変化が分かりにくい方。\n・焼肉店やBBQで、生焼けによる食中毒が心配な方。\n・ステーキを自分好みの絶妙な焼き加減で仕上げたい方。\n・誰にも頼らず、自分のペースで安心して食事を楽しみたい方。',
+  //   mainText:
+  //       '「焼肉判定AI」は、最新の物体認識AI（YOLO）を活用して、網の上の肉が「生」「食べ頃」「焼きすぎ」のどの状態にあるかをリアルタイムで判別する、ユニバーサルデザイン・アプリです。\n\n【開発の目的】\n世の中には「色の変化」を捉えるのが苦手な色覚多様性（D型やP型など）を持つ方が多くいらっしゃいます。そうした方々にとって、赤から茶色へ変わる「肉の焼き加減」の判断は非常に難しく、焼肉を楽しむ際のハードルになっていました。\n\n本プロジェクトは、テクノロジーの力でそのバリアを取り除き、誰もが自分のペースで、安心して美味しいお肉を楽しめる社会を目指しています。\n\n【主な機能】\n■ リアルタイムAI解析\nスマホのカメラをかざすだけで、AIが瞬時に肉の状態を識別します。\n\n■ 視認性の高い通知\n色だけに頼らず、テキストとアイコンによる明確なフィードバックを行います。\n\n■ 多様な肉の種類に対応（予定）\n牛肉だけでなく、豚肉や鶏肉など、焼き加減の判断が難しい食材の学習を進めています。',
+  //   contentsText:
+  //       "私自身、色覚多様性を持つ友人と食事をした際、彼が肉の焼き具合を何度も確認している姿を見て、この課題を解決したいと考えました。単なる「便利ツール」ではなく、誰かの「できない」を「できる」に変える、FlutterとAIの可能性を追求した一作です。",
+  //   attentionToDetail:
+  //       "・YOLOを用いた画像認識モデルの軽量化により、スマホ上でのスムーズな動作を実現。\n・UIは極力シンプルに。食事の楽しさを邪魔しない、直感的な操作感にこだわりました。\n・現在、より精度の高い判定を目指し、様々な照明環境（焼肉店の独特な照明など）での学習データを収集中です。",
+  //   jpImageList: [
+  //     'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 1.png',
+  //     'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 2.png',
+  //     'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 3.png',
+  //     'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 4.png',
+  //     'assets/yakiniku/jp/Apple iPhone 16 Pro Max Screenshot 5.png',
+  //   ],
+  //   enImageList: [],
+  //   techStack: 'Flutter / YOLO / Python',
+  //   googlePlayLink: '',
+  //   appStoreLink: '',
+  //   createDate: '',
+  //   updateDate: '',
+  //   version: '1.0.0',
+  //   appType: CreatedAPP.YAKINIKU,
+  // ),
 ];
 
 const List<Map<String, String>> _allAnnouncements = [];
@@ -269,8 +269,9 @@ class _HeroSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                '技術で、 日常の「支え」をつくる。',
+              Text(//TODO ちょっと恥ずかしい
+                'Flutterによる、生活に寄り添うツール開発',
+                // '技術で、 日常の「支え」をつくる。',
                 style: textTheme.displaySmall?.copyWith(
                   fontWeight: FontWeight.w800,
                   height: 1.2,
@@ -684,14 +685,14 @@ class _ContactSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 32),
-              Text(
-                '一緒に、新しい「支え」を。',
-                textAlign: TextAlign.center,
-                style: textTheme.headlineMedium?.copyWith(
-                  fontWeight: FontWeight.w800,
-                  fontSize: isCompact ? 24 : null,
-                ),
-              ),
+              // Text(
+              //   '一緒に、新しい「支え」を。',
+              //   textAlign: TextAlign.center,
+              //   style: textTheme.headlineMedium?.copyWith(
+              //     fontWeight: FontWeight.w800,
+              //     fontSize: isCompact ? 24 : null,
+              //   ),
+              // ),
               const SizedBox(height: 24),
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 600),
