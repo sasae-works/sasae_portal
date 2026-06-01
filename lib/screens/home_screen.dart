@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:sasae_portal/common/localization.dart';
 import 'package:sasae_portal/common/store_link_button_widget.dart';
 import 'package:sasae_portal/models/project.dart';
 import 'package:sasae_portal/screens/privacy_policy_screen.dart';
@@ -24,6 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey _projectsKey = GlobalKey();
   final GlobalKey _contactKey = GlobalKey();
 
+  AppLanguage _language = AppLanguage.ja;
+
   static const double _navBreakpoint = 880;
 
   /// Smoothly scrolls to the section identified by the given [key].
@@ -46,6 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final s = AppStrings(_language);
     final scheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final width = MediaQuery.sizeOf(context).width;
@@ -79,10 +83,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       onPressed: () => _scaffoldKey.currentState?.openDrawer(),
                     )
                   else ...[
-                    _NavAction(label: 'Home', onTap: () => _scrollTo(_heroKey)),
-                    _NavAction(label: 'Updates', onTap: () => _scrollTo(_updatesKey)),
-                    _NavAction(label: 'Projects', onTap: () => _scrollTo(_projectsKey)),
-                    _NavAction(label: 'Contact', onTap: () => _scrollTo(_contactKey)),
+                    _NavAction(label: s.home, onTap: () => _scrollTo(_heroKey)),
+                    _NavAction(label: s.updates, onTap: () => _scrollTo(_updatesKey)),
+                    _NavAction(label: s.projects, onTap: () => _scrollTo(_projectsKey)),
+                    _NavAction(label: s.contact, onTap: () => _scrollTo(_contactKey)),
+                    const SizedBox(width: 8),
+                    _LanguageToggleButton(
+                      currentLanguage: _language,
+                      onChanged: (lang) => setState(() => _language = lang),
+                    ),
                   ],
                 ],
               ),
@@ -98,11 +107,11 @@ class _HomeScreenState extends State<HomeScreen> {
         child: CustomScrollView(
           controller: _scrollController,
           slivers: [
-            SliverToBoxAdapter(child: _HeroSection(key: _heroKey, scheme: scheme, textTheme: textTheme)),
-            SliverToBoxAdapter(child: _AnnouncementsSection(key: _updatesKey, scheme: scheme, textTheme: textTheme)),
-            SliverToBoxAdapter(child: _ProjectsSection(key: _projectsKey, scheme: scheme, textTheme: textTheme)),
-            SliverToBoxAdapter(child: _ContactSection(key: _contactKey, scheme: scheme, textTheme: textTheme)),
-            SliverToBoxAdapter(child: _Footer(scheme: scheme, textTheme: textTheme)),
+            SliverToBoxAdapter(child: _HeroSection(key: _heroKey, scheme: scheme, textTheme: textTheme, s: s)),
+            SliverToBoxAdapter(child: _AnnouncementsSection(key: _updatesKey, scheme: scheme, textTheme: textTheme, s: s)),
+            SliverToBoxAdapter(child: _ProjectsSection(key: _projectsKey, scheme: scheme, textTheme: textTheme, s: s)),
+            SliverToBoxAdapter(child: _ContactSection(key: _contactKey, scheme: scheme, textTheme: textTheme, s: s)),
+            SliverToBoxAdapter(child: _Footer(scheme: scheme, textTheme: textTheme, s: s, onLanguageChanged: (lang) => setState(() => _language = lang))),
             const SliverToBoxAdapter(child: SizedBox(height: 8)),
           ],
         ),
@@ -111,6 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildDrawer(BuildContext context) {
+    final s = AppStrings(_language);
     final textTheme = Theme.of(context).textTheme;
     return Drawer(
       child: SafeArea(
@@ -124,10 +134,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
               ),
             ),
-            _DrawerTile(label: 'Home', onTap: () { Navigator.pop(context); _scrollTo(_heroKey); }),
-            _DrawerTile(label: 'Updates', onTap: () { Navigator.pop(context); _scrollTo(_updatesKey); }),
-            _DrawerTile(label: 'Projects', onTap: () { Navigator.pop(context); _scrollTo(_projectsKey); }),
-            _DrawerTile(label: 'Contact', onTap: () { Navigator.pop(context); _scrollTo(_contactKey); }),
+            _DrawerTile(label: s.home, onTap: () { Navigator.pop(context); _scrollTo(_heroKey); }),
+            _DrawerTile(label: s.updates, onTap: () { Navigator.pop(context); _scrollTo(_updatesKey); }),
+            _DrawerTile(label: s.projects, onTap: () { Navigator.pop(context); _scrollTo(_projectsKey); }),
+            _DrawerTile(label: s.contact, onTap: () { Navigator.pop(context); _scrollTo(_contactKey); }),
+            const Spacer(),
+            const Divider(),
+            ListTile(
+              title: Text(s.languageToggleLabel),
+              leading: const Icon(Icons.language_rounded),
+              onTap: () {
+                setState(() => _language = _language == AppLanguage.ja ? AppLanguage.en : AppLanguage.ja);
+                Navigator.pop(context);
+              },
+            ),
+            const SizedBox(height: 16),
           ],
         ),
       ),
@@ -255,9 +276,10 @@ const List<Map<String, String>> _allAnnouncements = [];
 // --- Hero Section ---
 /// Displays the main slogan and introduction of Sasae Works.
 class _HeroSection extends StatelessWidget {
-  const _HeroSection({super.key, required this.scheme, required this.textTheme});
+  const _HeroSection({super.key, required this.scheme, required this.textTheme, required this.s});
   final ColorScheme scheme;
   final TextTheme textTheme;
+  final AppStrings s;
 
   @override
   Widget build(BuildContext context) {
@@ -270,7 +292,7 @@ class _HeroSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(//TODO ちょっと恥ずかしい
-                'Flutterによる、生活に寄り添うツール開発',
+                s.heroTitle,
                 // '技術で、 日常の「支え」をつくる。',
                 style: textTheme.displaySmall?.copyWith(
                   fontWeight: FontWeight.w800,
@@ -282,7 +304,7 @@ class _HeroSection extends StatelessWidget {
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 600),
                 child: Text(
-                  'Sasae Worksは、メンタルウェルネスとセルフケアに寄り添うプロダクトを開発しています。日々の小さな気づきを、Flutterを用いた洗練された体験へ。',
+                  s.heroSubtitle,
                   style: textTheme.bodyLarge?.copyWith(color: scheme.onSurfaceVariant, height: 1.6),
                 ),
               ),
@@ -292,7 +314,7 @@ class _HeroSection extends StatelessWidget {
                   final state = context.findAncestorStateOfType<_HomeScreenState>();
                   state?._scrollTo(state._projectsKey);
                 },
-                child: const Text('プロジェクトを見る'),
+                child: Text(s.viewProjects),
               ),
             ],
           ),
@@ -305,9 +327,10 @@ class _HeroSection extends StatelessWidget {
 // --- Projects Section ---
 /// Displays a grid/list of applications developed by Sasae Works.
 class _ProjectsSection extends StatelessWidget {
-  const _ProjectsSection({super.key, required this.scheme, required this.textTheme});
+  const _ProjectsSection({super.key, required this.scheme, required this.textTheme, required this.s});
   final ColorScheme scheme;
   final TextTheme textTheme;
+  final AppStrings s;
 
   @override
   Widget build(BuildContext context) {
@@ -326,7 +349,7 @@ class _ProjectsSection extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'PROJECTS',
+                  s.projectsLabel,
                   style: textTheme.labelLarge?.copyWith(
                     color: scheme.primary,
                     fontWeight: FontWeight.bold,
@@ -344,7 +367,7 @@ class _ProjectsSection extends StatelessWidget {
                         final List<Widget> rowChildren = [];
                         for (int j = 0; j < columns; j++) {
                           if (i + j < _allProjects.length) {
-                            rowChildren.add(Expanded(child: _ProjectCard(project: _allProjects[i + j])));
+                            rowChildren.add(Expanded(child: _ProjectCard(project: _allProjects[i + j], s: s)));
                           } else {
                             rowChildren.add(const Expanded(child: SizedBox()));
                           }
@@ -372,7 +395,7 @@ class _ProjectsSection extends StatelessWidget {
                       children: _allProjects
                           .map((p) => SizedBox(
                                 width: 340,
-                                child: _ProjectCard(project: p),
+                                child: _ProjectCard(project: p, s: s),
                               ))
                           .toList(),
                     ),
@@ -390,13 +413,19 @@ class _ProjectsSection extends StatelessWidget {
 
 /// A card widget that displays information about a single [Project].
 class _ProjectCard extends StatelessWidget {
-  const _ProjectCard({required this.project});
+  const _ProjectCard({required this.project, required this.s});
   final Project project;
+  final AppStrings s;
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
+
+    // Select images based on language
+    final imageList = s.language == AppLanguage.ja 
+        ? (project.jpImageList.isNotEmpty ? project.jpImageList : project.enImageList)
+        : (project.enImageList.isNotEmpty ? project.enImageList : project.jpImageList);
 
     return Card(
       elevation: 0,
@@ -407,7 +436,7 @@ class _ProjectCard extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) => ProjectDetailScreen(project: project)),
+          MaterialPageRoute(builder: (context) => ProjectDetailScreen(project: project, s: s)),
         ),
         child: Padding(
           padding: const EdgeInsets.all(24), // 余白を少し詰める
@@ -449,7 +478,7 @@ class _ProjectCard extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              if (project.jpImageList.isNotEmpty) ...[
+              if (imageList.isNotEmpty) ...[
                 // カルーセルエリア
                 ScrollConfiguration(
                   behavior: ScrollConfiguration.of(context).copyWith(
@@ -466,7 +495,7 @@ class _ProjectCard extends StatelessWidget {
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         physics: const BouncingScrollPhysics(),
-                        itemCount: project.jpImageList.length,
+                        itemCount: imageList.length,
                         separatorBuilder: (context, index) => const SizedBox(width: 12),
                         itemBuilder: (context, index) {
                           return Container(
@@ -484,7 +513,7 @@ class _ProjectCard extends StatelessWidget {
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12),
                               child: Image.asset(
-                                project.jpImageList[index],
+                                imageList[index],
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -528,9 +557,10 @@ class _ProjectCard extends StatelessWidget {
 // --- Announcements Section ---
 /// Displays a list of recent updates and news.
 class _AnnouncementsSection extends StatelessWidget {
-  const _AnnouncementsSection({super.key, required this.scheme, required this.textTheme});
+  const _AnnouncementsSection({super.key, required this.scheme, required this.textTheme, required this.s});
   final ColorScheme scheme;
   final TextTheme textTheme;
+  final AppStrings s;
 
   @override
   Widget build(BuildContext context) {
@@ -546,7 +576,7 @@ class _AnnouncementsSection extends StatelessWidget {
         orElse: () => _allProjects.first,
       );
       Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => ProjectDetailScreen(project: project)),
+        MaterialPageRoute(builder: (context) => ProjectDetailScreen(project: project, s: s)),
       );
     }
 
@@ -567,7 +597,7 @@ class _AnnouncementsSection extends StatelessWidget {
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: Text(
-                      'NEWS',
+                      s.newsLabel,
                       style: textTheme.labelSmall?.copyWith(
                         color: scheme.primary,
                         fontWeight: FontWeight.bold,
@@ -646,20 +676,21 @@ class _AnnouncementsSection extends StatelessWidget {
 
   String _getAppName(CreatedAPP app) {
     switch (app) {
-      case CreatedAPP.HOMENIKKI: return '褒め日記';
-      case CreatedAPP.THREEGOODTHINGS: return '3 Good Things';
-      case CreatedAPP.KOKORORESESEARCH: return 'ココロリサーチ';
-      case CreatedAPP.BAGNONAKAMI: return 'バッグの中身';
-      case CreatedAPP.YAKINIKU: return '焼肉判定AI';
+      case CreatedAPP.HOMENIKKI: return s.homeNikki;
+      case CreatedAPP.THREEGOODTHINGS: return s.threeGoodThings;
+      case CreatedAPP.KOKORORESESEARCH: return s.kokoroResearch;
+      case CreatedAPP.BAGNONAKAMI: return s.bagNoNakami;
+      case CreatedAPP.YAKINIKU: return s.yakinikuAI;
     }
   }
 }
 
 /// Section for contact information and inquiries.
 class _ContactSection extends StatelessWidget {
-  const _ContactSection({super.key, required this.scheme, required this.textTheme});
+  const _ContactSection({super.key, required this.scheme, required this.textTheme, required this.s});
   final ColorScheme scheme;
   final TextTheme textTheme;
+  final AppStrings s;
 
   @override
   Widget build(BuildContext context) {
@@ -677,7 +708,7 @@ class _ContactSection extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'CONTACT',
+                s.contactLabel,
                 style: textTheme.labelLarge?.copyWith(
                   color: scheme.primary,
                   fontWeight: FontWeight.bold,
@@ -697,7 +728,7 @@ class _ContactSection extends StatelessWidget {
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 600),
                 child: Text(
-                  'アプリ開発のご相談や、プロジェクトに関するお問い合わせをお待ちしております。お気軽にご連絡ください。',
+                  s.contactDescription,
                   textAlign: TextAlign.center,
                   style: textTheme.bodyLarge?.copyWith(
                     color: scheme.onSurfaceVariant,
@@ -722,7 +753,7 @@ class _ContactSection extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Email Address',
+                      s.emailAddressLabel,
                       style: textTheme.labelMedium?.copyWith(color: scheme.primary),
                     ),
                     const SizedBox(height: 8),
@@ -749,9 +780,11 @@ class _ContactSection extends StatelessWidget {
 
 /// Footer section containing site info and policy links.
 class _Footer extends StatelessWidget {
-  const _Footer({required this.scheme, required this.textTheme});
+  const _Footer({required this.scheme, required this.textTheme, required this.s, required this.onLanguageChanged});
   final ColorScheme scheme;
   final TextTheme textTheme;
+  final AppStrings s;
+  final Function(AppLanguage) onLanguageChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -813,7 +846,8 @@ class _Footer extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Text(
-          '日常を支える、Flutter製のモダンなプロダクト。',
+          s.footerBrandSubtitle,
+          // '日常を支える、Flutter製のモダンなプロダクト。',
           textAlign: isCenter ? TextAlign.center : TextAlign.start,
           style: textTheme.bodyMedium?.copyWith(
             color: scheme.onSurfaceVariant,
@@ -824,29 +858,47 @@ class _Footer extends StatelessWidget {
   }
 
   Widget _buildFooterLinks(BuildContext context, bool isCenter) {
-    return Column(
-      crossAxisAlignment: isCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
-      children: [
-        Text(
-          'LEGAL',
-          style: textTheme.labelMedium?.copyWith(
-            fontWeight: FontWeight.bold,
-            letterSpacing: 1.2,
-          ),
-        ),
-        const SizedBox(height: 16),
-        InkWell(
-          onTap: () => Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const PrivacyPolicyScreen()),
-          ),
-          child: Text(
-            'プライバシーポリシー',
-            style: textTheme.bodyMedium?.copyWith(
-              color: scheme.onSurfaceVariant,
+    return SizedBox(
+      ///日英切り替えでレイアウトが左右にずれるので固定
+      width: 200,
+      // color: Colors.red,
+      child: Column(
+        crossAxisAlignment: isCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+        children: [
+          Text(
+            s.legalLabel,
+            style: textTheme.labelMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+              letterSpacing: 1.2,
             ),
           ),
-        ),
-      ],
+          const SizedBox(height: 16),
+          InkWell(
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const PrivacyPolicyScreen()),
+            ),
+            child: Text(
+              s.privacyPolicy,
+              style: textTheme.bodyMedium?.copyWith(
+                color: scheme.onSurfaceVariant,
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          InkWell(
+            onTap: () {
+              onLanguageChanged(s.language == AppLanguage.ja ? AppLanguage.en : AppLanguage.ja);
+            },
+            child: Text(
+              s.languageToggleLabel,
+              style: textTheme.bodyMedium?.copyWith(
+                color: scheme.primary,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -872,5 +924,56 @@ class _DrawerTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(title: Text(label), onTap: onTap);
+  }
+}
+
+/// A toggle button to switch between Japanese and English.
+class _LanguageToggleButton extends StatelessWidget {
+  const _LanguageToggleButton({required this.currentLanguage, required this.onChanged});
+  final AppLanguage currentLanguage;
+  final ValueChanged<AppLanguage> onChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final isJa = currentLanguage == AppLanguage.ja;
+
+    return Container(
+      height: 32,
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerHigh,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: scheme.outlineVariant.withValues(alpha: 0.5)),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          _buildOption('JA', isJa, () => onChanged(AppLanguage.ja), scheme),
+          _buildOption('EN', !isJa, () => onChanged(AppLanguage.en), scheme),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildOption(String label, bool isSelected, VoidCallback onTap, ColorScheme scheme) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: isSelected ? scheme.primary : Colors.transparent,
+          borderRadius: BorderRadius.circular(14),
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.bold,
+            color: isSelected ? scheme.onPrimary : scheme.onSurfaceVariant,
+          ),
+        ),
+      ),
+    );
   }
 }

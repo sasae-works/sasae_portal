@@ -1,14 +1,16 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:sasae_portal/common/localization.dart';
 import 'package:sasae_portal/common/store_link_button_widget.dart';
 import 'package:sasae_portal/models/project.dart';
 import 'package:sasae_portal/value/announcements_list.dart';
 
 /// A screen that displays detailed information about a specific [Project].
 class ProjectDetailScreen extends StatelessWidget {
-  const ProjectDetailScreen({super.key, required this.project});
+  const ProjectDetailScreen({super.key, required this.project, required this.s});
 
   final Project project;
+  final AppStrings s;
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +19,11 @@ class ProjectDetailScreen extends StatelessWidget {
 
     // Filter announcements for this project
     final projectAnnouncements = announceAppList.where((a) => a.createdAPP == project.appType).toList();
+
+    // Select images based on language
+    final imageList = s.language == AppLanguage.ja 
+        ? (project.jpImageList.isNotEmpty ? project.jpImageList : project.enImageList)
+        : (project.enImageList.isNotEmpty ? project.enImageList : project.jpImageList);
 
     return Scaffold(
       appBar: AppBar(
@@ -61,7 +68,7 @@ class ProjectDetailScreen extends StatelessWidget {
 
                         const SizedBox(height: 40),
 
-                        _buildSectionTitle(scheme, textTheme, '概要'),
+                        _buildSectionTitle(scheme, textTheme, s.overview),
                         Text(
                           project.recommendedText,
                           style: textTheme.bodyLarge?.copyWith(
@@ -72,16 +79,17 @@ class ProjectDetailScreen extends StatelessWidget {
 
                         if (project.mainText.isNotEmpty) ...[
                           _ExpandableMainText(
-                            title: '機能と特徴の詳細',
+                            title: s.featuresAndDetails,
                             content: project.mainText,
                             scheme: scheme,
                             textTheme: textTheme,
+                            s: s,
                           ),
                         ],
 
-                        if (project.jpImageList.isNotEmpty) ...[
+                        if (imageList.isNotEmpty) ...[
                           const SizedBox(height: 40),
-                          _buildSectionTitle(scheme, textTheme, 'スクリーンショット'),
+                          _buildSectionTitle(scheme, textTheme, s.screenshots),
                           const SizedBox(height: 16),
                           Scrollbar(
                             thumbVisibility: true,
@@ -98,7 +106,7 @@ class ProjectDetailScreen extends StatelessWidget {
                                 child: ListView.separated(
                                   scrollDirection: Axis.horizontal,
                                   physics: const BouncingScrollPhysics(),
-                                  itemCount: project.jpImageList.length,
+                                  itemCount: imageList.length,
                                   separatorBuilder: (context, index) => const SizedBox(width: 16),
                                   itemBuilder: (context, index) {
                                     return Container(
@@ -116,7 +124,7 @@ class ProjectDetailScreen extends StatelessWidget {
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(16),
                                         child: Image.asset(
-                                          project.jpImageList[index],
+                                          imageList[index],
                                           fit: BoxFit.contain,
                                         ),
                                       ),
@@ -131,7 +139,7 @@ class ProjectDetailScreen extends StatelessWidget {
                         const SizedBox(height: 32),
 
                         // Development Background
-                        _buildSectionTitle(scheme, textTheme, '開発の背景'),
+                        _buildSectionTitle(scheme, textTheme, s.developmentBackground),
                         Text(
                           project.contentsText,
                           style: textTheme.bodyLarge?.copyWith(
@@ -143,7 +151,7 @@ class ProjectDetailScreen extends StatelessWidget {
                         const SizedBox(height: 32),
 
                         // Attention to Detail
-                        _buildSectionTitle(scheme, textTheme, 'こだわったポイント'),
+                        _buildSectionTitle(scheme, textTheme, s.keyPoints),
                         Text(
                           project.attentionToDetail,
                           style: textTheme.bodyLarge?.copyWith(
@@ -157,13 +165,14 @@ class ProjectDetailScreen extends StatelessWidget {
                             announcements: projectAnnouncements,
                             scheme: scheme,
                             textTheme: textTheme,
+                            s: s,
                           ),
                         ],
 
                         const SizedBox(height: 32),
 
                         // Tech Stack
-                        _buildSectionTitle(scheme, textTheme, '技術スタック'),
+                        _buildSectionTitle(scheme, textTheme, s.techStackLabel),
                         Wrap(
                           spacing: 8,
                           runSpacing: 8,
@@ -254,11 +263,13 @@ class _ExpandableReleaseNotes extends StatefulWidget {
     required this.announcements,
     required this.scheme,
     required this.textTheme,
+    required this.s,
   });
 
   final List<announceUpdateApp> announcements;
   final ColorScheme scheme;
   final TextTheme textTheme;
+  final AppStrings s;
 
   @override
   State<_ExpandableReleaseNotes> createState() => _ExpandableReleaseNotesState();
@@ -275,7 +286,7 @@ class _ExpandableReleaseNotesState extends State<_ExpandableReleaseNotes> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildSectionTitle(widget.scheme, widget.textTheme, 'リリースノート'),
+        _buildSectionTitle(widget.scheme, widget.textTheme, widget.s.releaseNotes),
         const SizedBox(height: 8),
         _buildAnnouncementItem(first),
         if (remaining.isNotEmpty) ...[
@@ -292,7 +303,7 @@ class _ExpandableReleaseNotesState extends State<_ExpandableReleaseNotes> {
             child: TextButton.icon(
               onPressed: () => setState(() => _isExpanded = !_isExpanded),
               icon: Icon(_isExpanded ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded),
-              label: Text(_isExpanded ? '過去の履歴を閉じる' : '過去の履歴をすべて見る'),
+              label: Text(_isExpanded ? widget.s.closeHistory : widget.s.viewAllHistory),
               style: TextButton.styleFrom(
                 foregroundColor: widget.scheme.primary,
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -406,12 +417,14 @@ class _ExpandableMainText extends StatefulWidget {
     required this.content,
     required this.scheme,
     required this.textTheme,
+    required this.s,
   });
 
   final String title;
   final String content;
   final ColorScheme scheme;
   final TextTheme textTheme;
+  final AppStrings s;
 
   @override
   State<_ExpandableMainText> createState() => _ExpandableMainTextState();
@@ -498,7 +511,7 @@ class _ExpandableMainTextState extends State<_ExpandableMainText> {
           child: TextButton.icon(
             onPressed: () => setState(() => _isExpanded = !_isExpanded),
             icon: Icon(_isExpanded ? Icons.keyboard_arrow_up_rounded : Icons.keyboard_arrow_down_rounded),
-            label: Text(_isExpanded ? '詳細を閉じる' : '詳細をすべて見る'),
+            label: Text(_isExpanded ? widget.s.closeDetails : widget.s.viewFullDetails),
             style: TextButton.styleFrom(
               foregroundColor: widget.scheme.primary,
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
