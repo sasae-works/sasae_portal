@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4f40753e-744d-43d5-af53-d3ceaf4871b4" name="Changes" comment="日英多言語化">
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;seki000&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/seki000/sasae_portal.git&quot;,
+    &quot;accountId&quot;: &quot;8d58def3-5a6d-4127-ad0a-d1c30b2b77b4&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="3B22iMCCfbssGeXTn6pGMZSvjbd" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Flutter.main.dart.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;io.flutter.project.isFirstOpen&quot;: &quot;true&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/urmx9/StudioProjects/sasae_portal/assets/3GoodThings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\urmx9\StudioProjects\sasae_portal\assets\3GoodThings" />
+      <recent name="C:\Users\urmx9\StudioProjects\sasae_portal\assets\bagNakami\jp" />
+      <recent name="C:\Users\urmx9\StudioProjects\sasae_portal\assets\bagNakami" />
+      <recent name="C:\Users\urmx9\StudioProjects\sasae_portal\assets\kokoroResearch\en" />
+      <recent name="C:\Users\urmx9\StudioProjects\sasae_portal\assets\kokoroResearch\jp" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\urmx9\StudioProjects\sasae_portal\assets" />
+    </key>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4f40753e-744d-43d5-af53-d3ceaf4871b4" name="Changes" comment="" />
+      <created>1773672980374</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773672980374</updated>
+    </task>
+    <task id="LOCAL-00001" summary="ディテール追加">
+      <option name="closed" value="true" />
+      <created>1775563875374</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1775563875374</updated>
+    </task>
+    <task id="LOCAL-00002" summary="プロジェクト情報の拡充およびアプリストアリンクの実装&#10;&#10;- `Project` モデルを拡張し、開発背景、こだわり、各ストアリンク、公開日、バージョン情報等のフィールドを追加&#10;- ホーム画面（`home_screen.dart`）のプロジェクトリストを更新&#10;    - 「3 Good Things」「褒め日記」「ココロリサーチ」の各アプリ説明文を詳細化&#10;    - 新規プロジェクト「バッグの中身」を追加&#10;    - 全プロジェクトにストアURLや開発詳細データを追加&#10;- プロジェクト詳細画面（`project_detail_screen.dart`）の構成変更&#10;    - `url_launcher` を導入し、GitHubリンクの代わりに Google Play / App Store のバッジ画像ボタンを配置&#10;    - バッジ画像アセット（`googlePlay.png`, `appStore.png`）を追加&#10;- `pubspec.yaml` および `pubspec.lock` の更新&#10;    - `url_launcher` および `google_fonts` パッケージを追加&#10;    - アセットディレクトリ（`assets/`）を有効化&#10;- プロジェクトの表示名を「Sasae Project」から「Sasae Works」へ変更&#10;- 各プラットフォーム（iOS, macOS, Linux, Windows）のプラグイン設定ファイルを更新（`url_launcher` 対応等）">
+      <option name="closed" value="true" />
+      <created>1778819675747</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1778819675749</updated>
+    </task>
+    <task id="LOCAL-00003" summary="共通パーツの切り出しによるリファクタリングとプロジェクト情報の更新&#10;&#10;- ストアリンクボタンを共通コンポーネント `StoreLinkButtonWidget` として新規作成&#10;- `project_detail_screen.dart` 内のリンク表示処理を `StoreLinkButtonWidget` へ置き換え、コードの冗長性を排除&#10;- `home_screen.dart` のプロジェクト情報を更新&#10;    - 「3 Good Things」のタイトルを正式名称へ変更し、詳細な説明文を追加&#10;- 各プロジェクト（3 Good Things, ココロリサーチ, 焼肉判定AI, バッグの中身等）のスクリーンショットおよびアイコン素材を `assets/` ディレクトリに追加">
+      <option name="closed" value="true" />
+      <created>1778826229594</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1778826229594</updated>
+    </task>
+    <task id="LOCAL-00004" summary="コードのドキュメント化、プロジェクト名の統一、およびアセット構成の更新&#10;&#10;- 各画面クラス（`HomeScreen`, `ProjectDetailScreen` 等）および `Project` モデルに Dartdoc コメントを追加し、コードの可観測性を向上&#10;- プロジェクト名を「Sasae Project」または「sasae_portal」から「Sasae Works」へ完全に統一&#10;    - `home_screen.dart`, `widget_test.dart` 内のテキストを修正&#10;    - `web/index.html` および `web/manifest.json` のメタデータ（title, description等）を更新&#10;- `README.md` を更新し、プロジェクトの概要説明を追加&#10;- `pubspec.yaml` に各プロジェクト用のアセットディレクトリ（`assets/yakiniku/` 等）を明示的に追加&#10;- `Project` モデル内の各フィールドに説明コメントを追加し、一部のTODO（リンク修正等）を明文化">
+      <option name="closed" value="true" />
+      <created>1778828737809</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1778828737809</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Agentがやったやばい修正">
+      <option name="closed" value="true" />
+      <created>1779071834346</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1779071834346</updated>
+    </task>
+    <task id="LOCAL-00006" summary="プロジェクト情報の詳細化、UIレイアウトの刷新、およびスクリーンショット表示機能の追加&#10;&#10;- `Project` モデルを拡張&#10;    - `summary` フィールドを追加し、一覧用の簡潔な説明と詳細用の文章を分離&#10;    - `icon` を `IconData` からアセットパス（`String`）に変更し、アプリの実際のアイコンを表示可能に調整&#10;    - スクリーンショット表示用の `jpImageList`, `enImageList` フィールドを追加&#10;- ホーム画面（`home_screen.dart`）のUIおよびコンテンツを大幅にアップデート&#10;    - 各プロジェクトのアイコンを実際のロゴ画像に更新し、詳細データを拡充&#10;    - プロジェクトカード内にスクリーンショットの水平カルーセル表示を実装&#10;    - 画面幅に応じたレスポンシブレイアウトを導入（デスクトップ向けの3カラム表示とモバイル向けのWrap表示）&#10;    - コンタクトセクションとフッターのデザインを、より洗練されたモダンなスタイルに刷新&#10;- プロジェクト詳細画面（`project_detail_screen.dart`）の改善&#10;    - レイアウトを整理し、概要、スクリーンショット、開発背景、こだわり等の各セクションを表示するように変更&#10;    - スクリーンショット一覧を画像リストとして実装&#10;- `StoreLinkButtonWidget` のリファクタリング&#10;    - ストアリンクがない場合の非表示制御および中央揃えのレイアウト調整&#10;    - ボタンのホバー・タップ動作の改善&#10;- `pubspec.yaml` の更新&#10;    - 各プロジェクトのスクリーンショットおよびアイコン画像用のディレクトリをアセットに追加">
+      <option name="closed" value="true" />
+      <created>1779087984334</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1779087984334</updated>
+    </task>
+    <task id="LOCAL-00007" summary="プロジェクト情報の拡充および詳細画面のUI改善&#10;&#10;- `Project` モデルの構成変更&#10;    - `description` を `recommendedText`（おすすめの人）と `mainText`（詳細説明）に分割・拡張&#10;- `project_detail_screen.dart` のUI大幅刷新&#10;    - アプリバーのスタイルおよびタイトルのフォントウェイトを調整&#10;    - セクションタイトルのデザイン変更（装飾的な縦棒と境界線の追加、フォントサイズの拡大）&#10;    - セクション間の余白や行間を調整し、可読性とレイアウトの「空気感」を向上&#10;    - 長文の詳細説明を折り畳み表示する `_ExpandableMainText` コンポーネントを実装&#10;    - スクリーンショット一覧にスクロールバーを追加&#10;- 各プロジェクト情報の詳細化&#10;    - 「3 Good Things」の開発背景、こだわり、詳細説明文を大幅に追記&#10;    - 「褒め日記」「ココロリサーチ」「バッグの中身」「焼肉判定AI」の各テキストフィールドを新モデルに合わせて整理・更新">
+      <option name="closed" value="true" />
+      <created>1779092274219</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1779092274220</updated>
+    </task>
+    <task id="LOCAL-00008" summary="褒め日記（homeNikki）のスクリーンショット画像を追加&#10;&#10;- `assets/homeNikki/` 配下に日本語（jp）および英語（en）の各スクリーンショット画像（計16枚）を追加">
+      <option name="closed" value="true" />
+      <created>1779156648273</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1779156648274</updated>
+    </task>
+    <task id="LOCAL-00009" summary="アプリ情報の拡充およびアップデート履歴機能の実装&#10;&#10;- アプリの更新情報を管理するための `CreatedAPP` enum および `announceUpdateApp` モデルを `lib/value/announcements_list.dart` に定義&#10;- ホーム画面（`home_screen.dart`）のプロジェクトリストを更新&#10;    - 各プロジェクト（「褒め日記」「ココロリサーチ」「バッグの中身」等）の紹介文、開発背景、こだわりのポイントを大幅に加筆&#10;    - `Project` モデルに `appType` フィールドを追加し、お知らせ情報と紐付け可能に調整&#10;- お知らせセクションの動的表示に対応&#10;    - 静的なリストから `announceAppList` を参照するように変更&#10;    - 最新3件のお知らせを表示し、タップで該当プロジェクトの詳細画面へ遷移する機能を実装&#10;- プロジェクト詳細画面（`project_detail_screen.dart`）に「アップデート履歴」セクションを追加&#10;    - プロジェクトごとの更新日、バージョン、更新内容を表示するよう構成を変更&#10;- ファイル構成の整理&#10;    - 旧 `lib/value_list/announcements_list.dart` を削除し、`lib/value/` 配下へ新しく定義ファイルを配置&#10;    - アプリ名等の定数を管理する `lib/value/label.dart` を追加&#10;- `pubspec.lock` の依存パッケージ（`characters`, `leak_tracker`, `material_color_utilities` 等）および Dart SDK バージョンを微調整">
+      <option name="closed" value="true" />
+      <created>1779172738662</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1779172738662</updated>
+    </task>
+    <task id="LOCAL-00010" summary="アプリ情報の拡充およびアップデート履歴機能の実装&#10;&#10;- アプリの更新情報を管理するための `CreatedAPP` enum および `announceUpdateApp` モデルを `lib/value/announcements_list.dart` に定義&#10;- ホーム画面（`home_screen.dart`）のプロジェクトリストを更新&#10;    - 各プロジェクト（「褒め日記」「ココロリサーチ」「バッグの中身」等）の紹介文、開発背景、こだわりのポイントを大幅に加筆&#10;    - `Project` モデルに `appType` フィールドを追加し、お知らせ情報と紐付け可能に調整&#10;- お知らせセクションの動的表示に対応&#10;    - 静的なリストから `announceAppList` を参照するように変更&#10;    - 最新3件のお知らせを表示し、タップで該当プロジェクトの詳細画面へ遷移する機能を実装&#10;- プロジェクト詳細画面（`project_detail_screen.dart`）に「アップデート履歴」セクションを追加&#10;    - プロジェクトごとの更新日、バージョン、更新内容を表示するよう構成を変更&#10;- ファイル構成の整理&#10;    - 旧 `lib/value_list/announcements_list.dart` を削除し、`lib/value/` 配下へ新しく定義ファイルを配置&#10;    - アプリ名等の定数を管理する `lib/value/label.dart` を追加&#10;- `pubspec.lock` の依存パッケージ（`characters`, `leak_tracker`, `material_color_utilities` 等）および Dart SDK バージョンを微調整">
+      <option name="closed" value="true" />
+      <created>1779174696448</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1779174696448</updated>
+    </task>
+    <task id="LOCAL-00011" summary="ホーム画面のレスポンシブ対応およびプライバシーポリシー画面の大幅な刷新&#10;&#10;- `home_screen.dart` のお知らせセクションをモバイル表示に対応&#10;    - 画面幅に基づいた `isMobile` フラグを導入&#10;    - モバイル表示時は日付をタイトルの上に配置し、レイアウトを最適化&#10;    - アプリのアイコンサイズや余白、角丸などのスタイルを微調整&#10;- `privacy_policy_screen.dart` の構成と内容を大幅に更新&#10;    - `CustomScrollView` を導入し、スクロール体験を向上&#10;    - デザインを刷新（セクションタイトルの装飾追加、最終更新日の明記、フォントスタイルの調整等）&#10;    - コンテンツの拡充：バックアップ機能（Google Drive等）、広告配信（Google AdMob）、アプリ内課金（RevenueCat）に関する項目を追加&#10;    - カメラ機能の利用について、オンデバイス処理である旨を追記&#10;- `main.dart` に `google_fonts` を導入&#10;    - 基本フォントを `Noto Sans JP` に設定し、全体のタイポグラフィを統一&#10;- 全体的な UI のブラッシュアップ（余白、色使い、コンポーネントの再利用性の向上等）">
+      <option name="closed" value="true" />
+      <created>1779337113774</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1779337113775</updated>
+    </task>
+    <task id="LOCAL-00012" summary="リリースしなおしになりそうなので一旦コメントアウト">
+      <option name="closed" value="true" />
+      <created>1780212744215</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1780212744215</updated>
+    </task>
+    <task id="LOCAL-00013" summary="日英多言語化">
+      <option name="closed" value="true" />
+      <created>1780281092419</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1780281092419</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ディテール追加" />
+    <MESSAGE value="プロジェクト情報の拡充およびアプリストアリンクの実装&#10;&#10;- `Project` モデルを拡張し、開発背景、こだわり、各ストアリンク、公開日、バージョン情報等のフィールドを追加&#10;- ホーム画面（`home_screen.dart`）のプロジェクトリストを更新&#10;    - 「3 Good Things」「褒め日記」「ココロリサーチ」の各アプリ説明文を詳細化&#10;    - 新規プロジェクト「バッグの中身」を追加&#10;    - 全プロジェクトにストアURLや開発詳細データを追加&#10;- プロジェクト詳細画面（`project_detail_screen.dart`）の構成変更&#10;    - `url_launcher` を導入し、GitHubリンクの代わりに Google Play / App Store のバッジ画像ボタンを配置&#10;    - バッジ画像アセット（`googlePlay.png`, `appStore.png`）を追加&#10;- `pubspec.yaml` および `pubspec.lock` の更新&#10;    - `url_launcher` および `google_fonts` パッケージを追加&#10;    - アセットディレクトリ（`assets/`）を有効化&#10;- プロジェクトの表示名を「Sasae Project」から「Sasae Works」へ変更&#10;- 各プラットフォーム（iOS, macOS, Linux, Windows）のプラグイン設定ファイルを更新（`url_launcher` 対応等）" />
+    <MESSAGE value="共通パーツの切り出しによるリファクタリングとプロジェクト情報の更新&#10;&#10;- ストアリンクボタンを共通コンポーネント `StoreLinkButtonWidget` として新規作成&#10;- `project_detail_screen.dart` 内のリンク表示処理を `StoreLinkButtonWidget` へ置き換え、コードの冗長性を排除&#10;- `home_screen.dart` のプロジェクト情報を更新&#10;    - 「3 Good Things」のタイトルを正式名称へ変更し、詳細な説明文を追加&#10;- 各プロジェクト（3 Good Things, ココロリサーチ, 焼肉判定AI, バッグの中身等）のスクリーンショットおよびアイコン素材を `assets/` ディレクトリに追加" />
+    <MESSAGE value="コードのドキュメント化、プロジェクト名の統一、およびアセット構成の更新&#10;&#10;- 各画面クラス（`HomeScreen`, `ProjectDetailScreen` 等）および `Project` モデルに Dartdoc コメントを追加し、コードの可観測性を向上&#10;- プロジェクト名を「Sasae Project」または「sasae_portal」から「Sasae Works」へ完全に統一&#10;    - `home_screen.dart`, `widget_test.dart` 内のテキストを修正&#10;    - `web/index.html` および `web/manifest.json` のメタデータ（title, description等）を更新&#10;- `README.md` を更新し、プロジェクトの概要説明を追加&#10;- `pubspec.yaml` に各プロジェクト用のアセットディレクトリ（`assets/yakiniku/` 等）を明示的に追加&#10;- `Project` モデル内の各フィールドに説明コメントを追加し、一部のTODO（リンク修正等）を明文化" />
+    <MESSAGE value="Agentがやったやばい修正" />
+    <MESSAGE value="プロジェクト情報の詳細化、UIレイアウトの刷新、およびスクリーンショット表示機能の追加&#10;&#10;- `Project` モデルを拡張&#10;    - `summary` フィールドを追加し、一覧用の簡潔な説明と詳細用の文章を分離&#10;    - `icon` を `IconData` からアセットパス（`String`）に変更し、アプリの実際のアイコンを表示可能に調整&#10;    - スクリーンショット表示用の `jpImageList`, `enImageList` フィールドを追加&#10;- ホーム画面（`home_screen.dart`）のUIおよびコンテンツを大幅にアップデート&#10;    - 各プロジェクトのアイコンを実際のロゴ画像に更新し、詳細データを拡充&#10;    - プロジェクトカード内にスクリーンショットの水平カルーセル表示を実装&#10;    - 画面幅に応じたレスポンシブレイアウトを導入（デスクトップ向けの3カラム表示とモバイル向けのWrap表示）&#10;    - コンタクトセクションとフッターのデザインを、より洗練されたモダンなスタイルに刷新&#10;- プロジェクト詳細画面（`project_detail_screen.dart`）の改善&#10;    - レイアウトを整理し、概要、スクリーンショット、開発背景、こだわり等の各セクションを表示するように変更&#10;    - スクリーンショット一覧を画像リストとして実装&#10;- `StoreLinkButtonWidget` のリファクタリング&#10;    - ストアリンクがない場合の非表示制御および中央揃えのレイアウト調整&#10;    - ボタンのホバー・タップ動作の改善&#10;- `pubspec.yaml` の更新&#10;    - 各プロジェクトのスクリーンショットおよびアイコン画像用のディレクトリをアセットに追加" />
+    <MESSAGE value="プロジェクト情報の拡充および詳細画面のUI改善&#10;&#10;- `Project` モデルの構成変更&#10;    - `description` を `recommendedText`（おすすめの人）と `mainText`（詳細説明）に分割・拡張&#10;- `project_detail_screen.dart` のUI大幅刷新&#10;    - アプリバーのスタイルおよびタイトルのフォントウェイトを調整&#10;    - セクションタイトルのデザイン変更（装飾的な縦棒と境界線の追加、フォントサイズの拡大）&#10;    - セクション間の余白や行間を調整し、可読性とレイアウトの「空気感」を向上&#10;    - 長文の詳細説明を折り畳み表示する `_ExpandableMainText` コンポーネントを実装&#10;    - スクリーンショット一覧にスクロールバーを追加&#10;- 各プロジェクト情報の詳細化&#10;    - 「3 Good Things」の開発背景、こだわり、詳細説明文を大幅に追記&#10;    - 「褒め日記」「ココロリサーチ」「バッグの中身」「焼肉判定AI」の各テキストフィールドを新モデルに合わせて整理・更新" />
+    <MESSAGE value="褒め日記（homeNikki）のスクリーンショット画像を追加&#10;&#10;- `assets/homeNikki/` 配下に日本語（jp）および英語（en）の各スクリーンショット画像（計16枚）を追加" />
+    <MESSAGE value="アプリ情報の拡充およびアップデート履歴機能の実装&#10;&#10;- アプリの更新情報を管理するための `CreatedAPP` enum および `announceUpdateApp` モデルを `lib/value/announcements_list.dart` に定義&#10;- ホーム画面（`home_screen.dart`）のプロジェクトリストを更新&#10;    - 各プロジェクト（「褒め日記」「ココロリサーチ」「バッグの中身」等）の紹介文、開発背景、こだわりのポイントを大幅に加筆&#10;    - `Project` モデルに `appType` フィールドを追加し、お知らせ情報と紐付け可能に調整&#10;- お知らせセクションの動的表示に対応&#10;    - 静的なリストから `announceAppList` を参照するように変更&#10;    - 最新3件のお知らせを表示し、タップで該当プロジェクトの詳細画面へ遷移する機能を実装&#10;- プロジェクト詳細画面（`project_detail_screen.dart`）に「アップデート履歴」セクションを追加&#10;    - プロジェクトごとの更新日、バージョン、更新内容を表示するよう構成を変更&#10;- ファイル構成の整理&#10;    - 旧 `lib/value_list/announcements_list.dart` を削除し、`lib/value/` 配下へ新しく定義ファイルを配置&#10;    - アプリ名等の定数を管理する `lib/value/label.dart` を追加&#10;- `pubspec.lock` の依存パッケージ（`characters`, `leak_tracker`, `material_color_utilities` 等）および Dart SDK バージョンを微調整" />
+    <MESSAGE value="ホーム画面のレスポンシブ対応およびプライバシーポリシー画面の大幅な刷新&#10;&#10;- `home_screen.dart` のお知らせセクションをモバイル表示に対応&#10;    - 画面幅に基づいた `isMobile` フラグを導入&#10;    - モバイル表示時は日付をタイトルの上に配置し、レイアウトを最適化&#10;    - アプリのアイコンサイズや余白、角丸などのスタイルを微調整&#10;- `privacy_policy_screen.dart` の構成と内容を大幅に更新&#10;    - `CustomScrollView` を導入し、スクロール体験を向上&#10;    - デザインを刷新（セクションタイトルの装飾追加、最終更新日の明記、フォントスタイルの調整等）&#10;    - コンテンツの拡充：バックアップ機能（Google Drive等）、広告配信（Google AdMob）、アプリ内課金（RevenueCat）に関する項目を追加&#10;    - カメラ機能の利用について、オンデバイス処理である旨を追記&#10;- `main.dart` に `google_fonts` を導入&#10;    - 基本フォントを `Noto Sans JP` に設定し、全体のタイポグラフィを統一&#10;- 全体的な UI のブラッシュアップ（余白、色使い、コンポーネントの再利用性の向上等）" />
+    <MESSAGE value="リリースしなおしになりそうなので一旦コメントアウト" />
+    <MESSAGE value="日英多言語化" />
+    <option name="LAST_COMMIT_MESSAGE" value="日英多言語化" />
+  </component>
+</project>
