@@ -37,8 +37,8 @@ class AppStrings {
       ? '日常の気づきを、形にする場所。' 
       : 'A place to give shape to daily insights.';
   String get legalLabel => language == AppLanguage.ja ? 'LEGAL' : 'LEGAL';
-  String get privacyPolicy => language == AppLanguage.ja ? 'プライバシーポリシー' : 'Privacy Policy';
-  
+  String get privacyPolicy => language == AppLanguage.ja ? 'プライバシーポリシー・利用規約' : 'Privacy Policy ・ terms of service';
+
   // Language Toggle
   String get languageToggleLabel => language == AppLanguage.ja ? 'English' : '日本語';
 
