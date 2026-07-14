@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sasae_portal/common/localization.dart';
 import 'package:sasae_portal/common/store_link_button_widget.dart';
 import 'package:sasae_portal/models/project.dart';
@@ -874,9 +875,7 @@ class _Footer extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           InkWell(
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const PrivacyPolicyScreen()),
-            ),
+            onTap: () => context.go('/privacy'),
             child: Text(
               s.privacyPolicy,
               style: textTheme.bodyMedium?.copyWith(

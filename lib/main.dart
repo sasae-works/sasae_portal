@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sasae_portal/screens/home_screen.dart';
+import 'package:sasae_portal/screens/privacy_policy_screen.dart';
+
+final _router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      builder: (context, state) => const HomeScreen(),
+    ),
+    GoRoute(
+      path: '/privacy',
+      builder: (context, state) => const PrivacyPolicyScreen(),
+    ),
+  ],
+);
 
 void main() {
   runApp(const MyApp());
 }
 
-/// The main application widget for Sasae Works.
-/// Main entry point for the Sasae Works portal application.
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -22,7 +35,8 @@ class MyApp extends StatelessWidget {
       ),
     );
 
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: _router,
       debugShowCheckedModeBanner: false,
       title: 'Sasae Works',
       theme: base.copyWith(
@@ -50,13 +64,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
         textTheme: GoogleFonts.zenKakuGothicNewTextTheme(base.textTheme).apply(
-          ///noto系列は、と。の位置が真ん中によって変な感じNewになるのでやめた方がよさそう
-        // textTheme: GoogleFonts.notoSansJpTextTheme(base.textTheme).apply(
           bodyColor: base.colorScheme.onSurface,
           displayColor: base.colorScheme.onSurface,
         ),
       ),
-      home: const HomeScreen(),
     );
   }
 }
