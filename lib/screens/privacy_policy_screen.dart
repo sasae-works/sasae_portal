@@ -109,6 +109,13 @@ class PrivacyPolicyScreen extends StatelessWidget {
                           'ご質問等は、下記のメールアドレスまでご連絡ください。\n\nSasae Works 運営窓口\nE-mail: sasae.works@gmail.com',
                         ),
 
+                        _buildSection(
+                          scheme,
+                          textTheme,
+                          '8. データの削除について',
+                          '本アプリの設定画面から「すべてのデータを削除」を実行することで、端末内のデータおよびクラウドバックアップ機能を利用している場合はFirebase上のバックアップデータも合わせて削除されます。',
+                        ),
+
 
                         // 利用規約セクション
                         const SizedBox(height: 80),
