@@ -1,9 +1,9 @@
 アップロード方法
 
 
-flutter build web --base-href /sasae_portal/
+fvm flutter build web --base-href /sasae_portal/
 Remove-Item -Recurse -Force docs
 Move-Item build\web docs
 git add docs
-git commit -m "add privacy route"
+git commit -m "fix camera section wording"
 git push origin master
