@@ -42,18 +42,22 @@ class PrivacyPolicyScreen extends StatelessWidget {
                           children: [
                             Text(
                               '制定日：2026年4月14日',
-                              style: textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+                              style: textTheme.bodySmall?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                              ),
                             ),
                             const SizedBox(width: 24),
                             Text(
-                              '最終更新日：2026年7月13日',
-                              style: textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+                              '最終更新日：2026年10月15日',
+                              style: textTheme.bodySmall?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                              ),
                             ),
                           ],
                         ),
                         const SizedBox(height: 32),
                         Text(
-                          'Sasae Works（以下、「当方」といいます）は、提供するアプリケーション（以下、「本アプリ」といいます）におけるユーザー情報の取扱いについて、以下の通りプライバシーポリシーを定めます。',
+                          'Sasae Works（以下「当方」といいます）は、Three Good Things（以下「本アプリ」といいます）で取り扱う情報について、以下のプライバシーポリシーを定めます。',
                           style: textTheme.bodyLarge?.copyWith(
                             height: 1.8,
                             color: scheme.onSurfaceVariant,
@@ -63,63 +67,58 @@ class PrivacyPolicyScreen extends StatelessWidget {
                         _buildSection(
                           scheme,
                           textTheme,
-                          '1. ユーザー情報の収集・送信について',
-                          '本アプリでは、氏名、メールアドレス、電話番号など、個人を直接特定できる情報を当方のサーバーへ送信・収集することはありません。\n本アプリ内に入力されたデータは原則としてユーザーの端末内に保存されますが、ユーザーがバックアップ機能を利用する場合に限り、ユーザーご自身が指定・管理する外部クラウドストレージサービスに暗号化されたデータが保存されます。当方がこれらのデータを閲覧、収集、または管理することはありません。',
+                          '1. 取得・保存する情報について',
+                          '本アプリでは、日記の本文、タグ、写真、記録日時、アプリ内で手動入力した健康関連データ（歩数、距離、運動時間、睡眠時間等）およびアプリの設定情報を、機能の提供に必要な範囲で取り扱います。\nGoogleまたはAppleによるアカウント連携では、Firebase Authenticationを利用し、ユーザー識別子や認証に必要な情報を処理します。連携方法や設定によってはメールアドレス等が取得される場合があります。\n本アプリの記録は基本的に端末内へ保存されます。クラウドバックアップ・同期機能を利用する場合、対象となる日記、写真および手動入力の健康関連データを、Google LLCが提供するFirebase（Cloud Firestore・Cloud Storage）へ送信し、保存・復元・同期に利用します。自動取得した健康データは、このバックアップの対象としません。',
                         ),
 
                         _buildSection(
                           scheme,
                           textTheme,
                           '2. 広告配信について（Google AdMob）',
-                          '本アプリでは、第三者（Google LLC）が提供する広告配信サービス「Google AdMob」を利用しています。広告配信のために、端末の広告識別子（IDFA / AAID）、デバイスに関する情報、およびアプリ内での動作ログが、自動的にGoogle LLCのサーバーへ送信・収集される場合があります。これらの情報は匿名の識別子であり、個人を直接特定するものではありません。\nユーザーは、端末の設定（iOSの「トラッキングの制限」、Androidの「広告のパーソナライズをオプトアウトする」等）により、これらの情報収集を制限することができます。',
+                          '本アプリは、Google LLCが提供するGoogle AdMobを使用します。広告の表示、効果測定、不正利用防止等のため、広告識別子（利用可能な場合）、端末情報、広告の表示・操作に関する情報等がGoogleに送信される場合があります。これらの情報の取扱いはGoogleのプライバシーポリシー等に従います。\n広告のパーソナライズやトラッキングに関する設定は、端末のプライバシー設定等から変更できます。',
                         ),
 
                         _buildSection(
                           scheme,
                           textTheme,
                           '3. アプリ内課金について（RevenueCat）',
-                          '本アプリでは、アプリ内決済（サブスクリプションおよびアイテム購入）の管理と検証のために、外部サービス「RevenueCat」を利用しています。\n決済の処理および購入ステータスの維持を目的として、ユーザーの購入履歴情報（購入日時、プロダクトID、決済ステータス等）およびアプリまたはRevenueCatが発行する匿名の識別子（App User ID）がRevenueCatのサーバーに送信され、管理されます。これらには氏名やクレジットカード番号などの金融情報は含まれません。',
+                          '本アプリでは、サブスクリプションおよびアプリ内購入の提供・購入状態の確認に、AppleまたはGoogleの決済機能とRevenueCatを使用します。購入商品、購入日時、契約状態、購入に関係する識別子等が、これらのサービスで処理されます。クレジットカード番号等の決済情報は、各ストアの決済システムにより取り扱われます。',
                         ),
 
                         _buildSection(
                           scheme,
                           textTheme,
-                         '4. カメラ機能の利用について',
-                          '本アプリでは、一部機能においてカメラ機能または写真ライブラリへのアクセスを利用する場合があります。取得した画像データは、ユーザーが選択した機能の実行に必要な範囲でのみ利用されます。\n\n画像データは通常、端末内にのみ保存されます。ただし、ユーザーがバックアップ機能を利用する場合、他のバックアップ対象データと同様に、暗号化された状態でFirebase（Google Cloud）上に保存され、バックアップ復元時に利用されます。当方がこれらの画像データを閲覧・分析・第三者への提供等を行うことはありません。',
+                          '4. 写真・カメラの利用について',
+                          '本アプリでは、ユーザーが選択した写真やカメラで撮影した画像を日記に添付できます。画像は端末内に保存され、クラウドバックアップ・同期機能の利用時にはFirebase Cloud Storageにも保存される場合があります。画像は日記の表示、保存、復元、同期のために使用します。',
                         ),
 
                         _buildSection(
                           scheme,
                           textTheme,
-                          '5. データの管理',
-                          '本アプリのデータは端末内（およびユーザーご自身が設定したバックアップ先）に保存されているため、アプリを削除すると端末内の全てのデータが消去されます。当方がユーザーのデータを保持・管理することはないため、当方によるデータの復元等の依頼には応じかねます。',
+                          '5. 健康データの利用とデータ管理',
+                          '本アプリでは、ユーザーの許可に基づき、Appleヘルスケア（HealthKit）またはAndroidのヘルスコネクト（Health Connect）から、歩数、移動距離、運動・活動時間、睡眠に関する情報を取得し、記録の表示や振り返りに使用します。許可する項目はOSや端末によって異なり、アクセス権限は端末の設定から変更できます。\nこれらのサービスから自動取得した健康データは、Firebaseのバックアップ・同期対象に含めません。アプリ内でユーザーが手動入力した健康関連データは、バックアップ・同期機能を利用する場合、Firebaseに保存されることがあります。\nクラウド上の記録にはFirebase Authenticationによるユーザー認証とFirestore等のアクセス制御を適用します。ただし、当方が運営するFirebaseプロジェクトにデータが保存されるため、当方が一切管理しないというものではありません。健康データを広告配信のために使用したり、広告事業者へ提供したりすることは意図していません。',
                         ),
 
                         _buildSection(
                           scheme,
                           textTheme,
-                          '6. 免責事項',
-                          '本アプリは、日常の利便性向上、記録・管理、情報提供等を目的として提供されるものです。当方は、本アプリの内容の正確性、完全性、有用性および特定目的への適合性を保証するものではありません。本アプリの利用によって生じた損害やトラブルについて、当方の故意または重過失による場合を除き、当方は責任を負わないものとします。',
+                          '6. データの保存期間・削除について',
+                          '端末内のデータは、ユーザーによる削除またはアプリのアンインストール等により失われる場合があります。一方、Firebaseに保存されたバックアップデータは、アプリをアンインストールするだけでは削除されません。\n本アプリの設定画面から提供されるデータ削除機能により、対象データを削除できます。削除対象や処理範囲は操作内容によって異なります。削除処理に不具合がある場合や削除を希望する場合は、第8項の連絡先へお問い合わせください。',
                         ),
 
                         _buildSection(
                           scheme,
                           textTheme,
-                          '7. お問い合わせ窓口',
-                          'ご質問等は、下記のメールアドレスまでご連絡ください。\n\nSasae Works 運営窓口\nE-mail: sasae.works@gmail.com',
+                          '7. 外部サービス・ポリシーの変更について',
+                          '本アプリでは、Firebase（認証・クラウド保存）、Google AdMob（広告配信）、RevenueCat（購入管理）、Apple・Googleの決済サービス等を利用します。各サービスにおける情報の取扱いには、それぞれのプライバシーポリシーが適用されます。\n当方は、機能やデータの取扱いの変更に応じて本ポリシーを改訂する場合があります。重要な変更については、アプリ内または適切な方法で案内します。',
                         ),
 
                         _buildSection(
                           scheme,
                           textTheme,
-                          '8. データの削除について',
-                          '本アプリ「褒め日記」の設定画面から「すべてのデータを削除」を実行することで、以下のデータが削除されます。\n\n'
-                              '・端末内に保存されている日記データ、タグ、トロフィーの獲得状況等（即時削除）\n'
-                              '・クラウドバックアップ機能をご利用の場合、Firebase上に保存されたバックアップデータ（即時削除）\n\n'
-                              '削除されたデータは復元できません。アカウント連携（Google/Appleログイン）自体は削除操作後も維持されますが、連携を解除したい場合は設定画面の「サインアウト」から行うことができます。',
+                          '8. お問い合わせ窓口',
+                          '個人情報やデータの取扱い、保存データの削除に関するお問い合わせは、以下までご連絡ください。\n\nSasae Works 運営窓口\nE-mail: sasae.works@gmail.com',
                         ),
-
-
 
                         // 利用規約セクション
                         const SizedBox(height: 80),
@@ -136,59 +135,89 @@ class PrivacyPolicyScreen extends StatelessWidget {
                           children: [
                             Text(
                               '制定日：2026年4月14日',
-                              style: textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+                              style: textTheme.bodySmall?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                              ),
                             ),
                             const SizedBox(width: 24),
                             Text(
-                              '最終更新日：2026年7月13日',
-                              style: textTheme.bodySmall?.copyWith(color: scheme.onSurfaceVariant),
+                              '最終更新日：2026年10月15日',
+                              style: textTheme.bodySmall?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                              ),
                             ),
                           ],
                         ),
                         const SizedBox(height: 32),
                         Text(
-                          'Sasae Works（以下、「当方」といいます）が提供するアプリケーション（以下、「本アプリ」といいます）の利用条件を定めるものです。本アプリを利用するユーザーは、本規約に同意の上、本アプリを利用するものとします。',
+                          '本規約は、Sasae Works（以下「当方」といいます）が提供するThree Good Things（以下「本アプリ」といいます）の利用条件を定めます。',
                           style: textTheme.bodyLarge?.copyWith(
                             height: 1.8,
                             color: scheme.onSurfaceVariant,
                           ),
                         ),
 
-                        _buildSection(scheme, textTheme, '第1条（適用）',
-                            '本規約は、ユーザーと当方との間の本アプリの利用に関わる一切の関係に適用されます。'),
+                        _buildSection(
+                          scheme,
+                          textTheme,
+                          '第1条（適用）',
+                          '本規約は、本アプリの利用に関するユーザーと当方との関係に適用されます。',
+                        ),
 
                         _buildSection(
                           scheme,
                           textTheme,
-                          '第2条（利用環境および自己責任）',
-                          '1. ユーザーは、本アプリを利用するために必要な端末、通信環境その他の利用環境を自己の責任と費用において準備するものとします。\n'
-                              '2. アプリを削除した場合、端末内に保存されたデータは削除され、当方による復元はできません。\n'
-                              '3. バックアップ機能を利用する場合、ユーザーご自身の責任において外部クラウドストレージサービスを管理するものとします。当方の故意または重過失による場合を除き、当方はバックアップデータの紛失・破損について責任を負いません。',
+                          '第2条（利用環境・データの保存）',
+                          '1. ユーザーは、本アプリの利用に必要な端末、通信環境等を自己の責任と費用で用意するものとします。\n2. アプリを削除すると端末内のデータが失われる場合があります。クラウドバックアップを利用している場合、バックアップが残っていれば復元できることがあります。\n3. クラウドバックアップ・同期は、通信状況、認証状態、サービス障害等により利用できない場合があります。重要な記録については、ユーザー自身でも適切な管理を行ってください。',
                         ),
-
-                        _buildSection(scheme, textTheme, '第3条（アプリ内課金・サブスクリプション）',
-                            '1. 本アプリでは一部機能においてアプリ内決済を提供しています。\n2. 返金手続き等についてはApple Inc.またはGoogle LLCが定める各ストアの規約が適用され、当方では直接の返金処理を行うことはできません。\n3. サブスクリプションの解約はユーザー自身が各ストアの設定から行う必要があります。アプリを削除しただけではサブスクリプションは解約されません。'),
-
-                        _buildSection(scheme, textTheme, '第4条（禁止事項）',
-                            '1. 本アプリのリバースエンジニアリング・逆コンパイル等を試みる行為。\n2. 当方または第三者の知的財産権を侵害する行為。\n3. 本アプリの不具合を意図的に利用した不正行為。\n4. その他、当方が不適切と判断する行為。'),
-
-                        _buildSection(scheme, textTheme, '第5条（本アプリの変更・終了）',
-                            '当方は、ユーザーへの事前通知なく本アプリの内容を変更・停止・終了することができます。'),
 
                         _buildSection(
                           scheme,
                           textTheme,
-                          '第6条（免責事項）',
-                          '本アプリは、日常の利便性向上、記録・管理、情報提供等を目的として提供されるものです。当方は、本アプリの内容の正確性、完全性、有用性および特定目的への適合性を保証するものではありません。本アプリの利用によって生じた損害について、当方の故意または重過失による場合を除き、当方は責任を負わないものとします。',
+                          '第3条（アプリ内課金・サブスクリプション）',
+                          '1. 本アプリの一部機能は有料です。料金、期間、提供内容は購入画面に表示します。\n2. 自動更新型サブスクリプションは、各ストアの定める方法で解約しない限り更新されます。アプリの削除やサインアウトだけでは解約されません。\n3. 購入、請求、返金についてはAppleまたはGoogleの適用される規約・手続きに従います。',
                         ),
-                        _buildSection(scheme, textTheme, '第7条（利用規約の変更）',
-                            '当方は必要と判断した場合、ユーザーへの個別通知なく本規約を変更することができます。'),
 
-                        _buildSection(scheme, textTheme, '第8条（準拠法・裁判管轄）',
-                            '本規約の解釈にあたっては日本法を準拠法とします。紛争が生じた場合には当方の主たる事務所所在地を管轄する裁判所を第一審の専属的合意管轄裁判所とします。'),
+                        _buildSection(
+                          scheme,
+                          textTheme,
+                          '第4条（禁止事項）',
+                          '1. 法令または第三者の権利を侵害する行為。\n2. 本アプリや関連サービスの運営を妨害し、または不正アクセスを行う行為。\n3. 不具合を悪用し、データやサービスに不正な影響を与える行為。\n4. その他、当方が合理的な理由に基づき不適切と判断する行為。',
+                        ),
 
-                        _buildSection(scheme, textTheme, '第9条（お問い合わせ窓口）',
-                            'ご質問等は、下記のメールアドレスまでご連絡ください。\n\nSasae Works 運営窓口\nE-mail: sasae.works@gmail.com'),
+                        _buildSection(
+                          scheme,
+                          textTheme,
+                          '第5条（サービスの変更・終了）',
+                          '当方は、必要に応じて本アプリの機能を変更、停止または終了する場合があります。ユーザーへの影響が大きい変更については、可能な範囲で事前に案内します。',
+                        ),
+
+                        _buildSection(
+                          scheme,
+                          textTheme,
+                          '第6条（免責・責任）',
+                          '本アプリは日常の記録と振り返りを支援するものであり、医療上の診断、治療、助言を提供するものではありません。健康データの表示や集計には端末・連携サービス等に由来する誤差が生じる場合があります。\n当方は、本アプリの完全な無停止運用やデータの完全な保全を保証するものではありません。ただし、法令上免責が認められない責任については、この限りではありません。',
+                        ),
+                        _buildSection(
+                          scheme,
+                          textTheme,
+                          '第7条（規約の変更）',
+                          '当方は、法令やサービス内容の変更等に応じて本規約を変更する場合があります。重要な変更については、アプリ内その他の適切な方法で案内します。',
+                        ),
+
+                        _buildSection(
+                          scheme,
+                          textTheme,
+                          '第8条（準拠法・裁判管轄）',
+                          '本規約には日本法を適用します。本アプリに関する紛争の管轄裁判所は、適用される法令に従って定めるものとします。',
+                        ),
+
+                        _buildSection(
+                          scheme,
+                          textTheme,
+                          '第9条（お問い合わせ窓口）',
+                          '本規約に関するお問い合わせは、以下までご連絡ください。\n\nSasae Works 運営窓口\nE-mail: sasae.works@gmail.com',
+                        ),
 
                         const SizedBox(height: 80),
                       ],
@@ -203,7 +232,12 @@ class PrivacyPolicyScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSection(ColorScheme scheme, TextTheme textTheme, String title, String content) {
+  Widget _buildSection(
+    ColorScheme scheme,
+    TextTheme textTheme,
+    String title,
+    String content,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -219,7 +253,11 @@ class PrivacyPolicyScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSectionTitle(ColorScheme scheme, TextTheme textTheme, String title) {
+  Widget _buildSectionTitle(
+    ColorScheme scheme,
+    TextTheme textTheme,
+    String title,
+  ) {
     return Padding(
       padding: const EdgeInsets.only(top: 48, bottom: 16),
       child: Column(
