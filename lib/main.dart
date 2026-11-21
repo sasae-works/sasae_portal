@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sasae_portal/screens/home_screen.dart';
 import 'package:sasae_portal/screens/privacy_policy_screen.dart';
+import 'package:sasae_portal/screens/tokushoho_screen.dart';
 
 final _router = GoRouter(
   routes: [
@@ -13,6 +14,10 @@ final _router = GoRouter(
     GoRoute(
       path: '/privacy',
       builder: (context, state) => const PrivacyPolicyScreen(),
+    ),
+    GoRoute(                                   // 追加
+      path: '/tokushoho',
+      builder: (context, state) => const TokushohoScreen(),
     ),
   ],
 );

@@ -885,6 +885,16 @@ class _Footer extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           InkWell(
+            onTap: () => context.go('/tokushoho'),
+            child: Text(
+              s.tokushoho,
+              style: textTheme.bodyMedium?.copyWith(
+                color: scheme.onSurfaceVariant,
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          InkWell(
             onTap: () {
               onLanguageChanged(s.language == AppLanguage.ja ? AppLanguage.en : AppLanguage.ja);
             },

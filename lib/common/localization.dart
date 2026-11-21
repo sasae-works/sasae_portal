@@ -38,6 +38,7 @@ class AppStrings {
       : 'A place to give shape to daily insights.';
   String get legalLabel => language == AppLanguage.ja ? 'LEGAL' : 'LEGAL';
   String get privacyPolicy => language == AppLanguage.ja ? 'プライバシーポリシー・利用規約' : 'Privacy Policy ・ terms of service';
+  String get tokushoho => language == AppLanguage.ja ? '特定商取引法に基づく表記' : 'Legal Notice (Japan)'; // 追加
 
   // Language Toggle
   String get languageToggleLabel => language == AppLanguage.ja ? 'English' : '日本語';
