@@ -861,7 +861,7 @@ class _Footer extends StatelessWidget {
   Widget _buildFooterLinks(BuildContext context, bool isCenter) {
     return SizedBox(
       ///日英切り替えでレイアウトが左右にずれるので固定
-      width: 200,
+      width: 260,
       // color: Colors.red,
       child: Column(
         crossAxisAlignment: isCenter ? CrossAxisAlignment.center : CrossAxisAlignment.start,
